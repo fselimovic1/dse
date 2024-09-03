@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model type="DAE" domain="real" method="RK2" eps="0.0001" name="IEE9_LoadOnTest">
+    <Vars out="true">
+        <Var name="delta1" val="0.12149670589764204"/>
+        <Var name="w1" val="1"/>
+        <Var name="delta2" val="0.12023691008961382"/>
+        <Var name="w2" val="1"/>
+    </Vars>
+    <Params>
+        <Param name="ws" val="1"/>
+        <Param name="wn" val="376.99111843077515"/>
+        <Param name="x1d1" val="0.408"/>
+        <Param name="M1" val="13.3617"/>
+        <Param name="D1" val="1.0"/>
+        <Param name="Pm1" val="0.3386494132928504"/>
+        <Param name="E1" val="1.139860250881309"/>
+        <Param name="x1d2" val="0.408"/>
+        <Param name="M2" val="20.3617"/>
+        <Param name="D2" val="1.0"/>
+        <Param name="Pm2" val="0.2222671493341566"/>
+        <Param name="E2" val="0.9825312366944153"/>
+        <Param name="Gr1_1" val="0.20815868088538964"/>
+        <Param name="Br1_1" val="-1.1028859864435885"/>
+        <Param name="Gr1_2" val="0.05973992904811768"/>
+        <Param name="Br1_2" val="0.9122747419009318"/>
+        <Param name="Gr2_1" val="0.05973992904811764"/>
+        <Param name="Br2_1" val="0.9122747419009318"/>
+        <Param name="Gr2_2" val="0.1622684446980646"/>
+        <Param name="Br2_2" val="-1.0505643895364396"/>
+        <Param name="Gv1_1" val="0.5500225175310159"/>
+        <Param name="Bv1_1" val="-0.08492874180123897"/>
+        <Param name="Gv1_2" val="0.37220809469558014"/>
+        <Param name="Bv1_2" val="-0.024373891051632013"/>
+        <Param name="Gv2_1" val="0.37220809469558014"/>
+        <Param name="Bv2_1" val="-0.024373891051631996"/>
+        <Param name="Gv2_2" val="0.5713697290691326"/>
+        <Param name="Bv2_2" val="-0.06620552543681035"/>
+        <Param name="Gv3_1" val="0.506062309528314"/>
+        <Param name="Bv3_1" val="-0.0789486175038962"/>
+        <Param name="Gv3_2" val="0.4056716484037636"/>
+        <Param name="Bv3_2" val="-0.038017572664698074"/>
+        <Param name="Vr1" val="1.0"/>
+        <Param name="Vim1" val="0.0"/>
+        <Param name="Vr2" val="0.9896418346484506"/>
+        <Param name="Vim2" val="0.02662778837321547"/>
+        <Param name="Vr3" val="0.9836619113817995"/>
+        <Param name="Vim3" val="-0.008656448273098208"/>
+        <Param name="V1" val="1.0" out="true"/>
+        <Param name="theta1" val="0.0" out="true"/>
+        <Param name="V2" val="0.99" out="true"/>
+        <Param name="theta2" val="0.0269" out="true"/>
+        <Param name="V3" val="0.9837" out="true"/>
+        <Param name="theta3" val="-0.0088" out="true"/>
+    </Params>
+    <ODEqs>
+        <Eq fx="w1' = 1/M1 * (Pm1 - E1^2 * Gr1_1 - D1 * (w1 - ws) - E1 * E2 * (Br1_2 * sin(delta1 - delta2) + Gr1_2 * cos(delta1 - delta2)))"/>
+        <Eq fx="delta1' = wn * (w1 - ws)"/>
+        <Eq fx="w2' = 1/M2 * (Pm2 - E2^2 * Gr2_2 - D2 * (w2 - ws) - E2 * E1 * (Br2_1 * sin(delta2 - delta1) + Gr2_1 * cos(delta2 - delta1)))"/>
+        <Eq fx="delta2' = wn * (w2 - ws)"/>
+    </ODEqs>
+    <NLEqs/>
+    <PostProc>
+        <Eq fx="Vr1 = + E1 * (Gv1_1 * cos(delta1) - Bv1_1 * sin(delta1)) + E2 * (Gv1_2 * cos(delta2) - Bv1_2 * sin(delta2))"/>
+        <Eq fx="Vim1 = + E1 * (Gv1_1 * sin(delta1) + Bv1_1 * cos(delta1)) + E2 * (Gv1_2 * sin(delta2) + Bv1_2 * cos(delta2))"/>
+        <Eq fx="Vr2 = + E1 * (Gv2_1 * cos(delta1) - Bv2_1 * sin(delta1)) + E2 * (Gv2_2 * cos(delta2) - Bv2_2 * sin(delta2))"/>
+        <Eq fx="Vim2 = + E1 * (Gv2_1 * sin(delta1) + Bv2_1 * cos(delta1)) + E2 * (Gv2_2 * sin(delta2) + Bv2_2 * cos(delta2))"/>
+        <Eq fx="Vr3 = + E1 * (Gv3_1 * cos(delta1) - Bv3_1 * sin(delta1)) + E2 * (Gv3_2 * cos(delta2) - Bv3_2 * sin(delta2))"/>
+        <Eq fx="Vim3 = + E1 * (Gv3_1 * sin(delta1) + Bv3_1 * cos(delta1)) + E2 * (Gv3_2 * sin(delta2) + Bv3_2 * cos(delta2))"/>
+        <Eq fx="V1 = sqrt(Vr1^2 + Vim1^2)"/>
+        <Eq fx="theta1 = atg(Vim1/Vr1)"/>
+        <Eq fx="V2 = sqrt(Vr2^2 + Vim2^2)"/>
+        <Eq fx="theta2 = atg(Vim2/Vr2)"/>
+        <Eq fx="V3 = sqrt(Vr3^2 + Vim3^2)"/>
+        <Eq fx="theta3 = atg(Vim3/Vr3)"/>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gr1_1 = 0.2224098231759459"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Br1_1 = -1.1076462278653583"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gr1_2 = 0.07128765630754133"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Br1_2 = 0.9091897231391772"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gr2_1 = 0.07128765630754134"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Br2_1 = 0.9091897231391769"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gr2_2 = 0.17158794641946262"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Br2_2 = -1.0524510335562147"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gv1_1 = 0.5480803390309339"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Bv1_1 = -0.09074320785578592"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gv1_2 = 0.3709494070407843"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Bv1_2 = -0.029085363773476862"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gv2_1 = 0.37094940704078416"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Bv2_1 = -0.02908536377347687"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gv2_2 = 0.5705999783090644"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Bv2_2 = -0.07000788213914075"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gv3_1 = 0.5037634826962836"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Bv3_1 = -0.08523799837656688"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Gv3_2 = 0.40415292595465907"/>
+        </Eq>
+        <Eq cond="t &gt; 1">
+            <Then fx="Bv3_2 = -0.0431235224242494"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gr1_1 = 0.20815868088538964"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Br1_1 = -1.1028859864435885"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gr1_2 = 0.05973992904811768"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Br1_2 = 0.9122747419009318"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gr2_1 = 0.05973992904811764"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Br2_1 = 0.9122747419009318"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gr2_2 = 0.1622684446980646"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Br2_2 = -1.0505643895364396"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gv1_1 = 0.5500225175310159"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Bv1_1 = -0.08492874180123897"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gv1_2 = 0.37220809469558014"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Bv1_2 = -0.024373891051632013"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gv2_1 = 0.37220809469558014"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Bv2_1 = -0.024373891051631996"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gv2_2 = 0.5713697290691326"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Bv2_2 = -0.06620552543681035"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gv3_1 = 0.506062309528314"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Bv3_1 = -0.0789486175038962"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Gv3_2 = 0.4056716484037636"/>
+        </Eq>
+        <Eq cond="t &gt; 6">
+            <Then fx="Bv3_2 = -0.038017572664698074"/>
+        </Eq>
+    </PostProc>
+</Model>

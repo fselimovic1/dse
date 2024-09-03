@@ -1,0 +1,5 @@
+===============================
+modelType: DAE
+   domain: real
+   inFile: real\ACIEEE_SG2_Dynamics.xml
+===============================

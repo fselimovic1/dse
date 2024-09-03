@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three bus system with two generators modeled with two-axis (4th order) dynamic equations.-->
+<Model type="DAE" domain="real" method="Trapezoidal" eps="1e-6" name="Three Bus System Dynamics">
+	<Vars out="true">
+        <!-- Dynamic (state) variables: Synchornous Generators -->
+		<Var name="delta1" val="1"/> 
+		<Var name="w1" val="1"/>
+        <Var name="e1d1" val="1"/> 
+        <Var name="e1q1" val="1"/> 
+        <Var name="delta2" val="1"/> 
+		<Var name="w2" val="1"/> 
+        <Var name="e1d2" val="1"/> 
+        <Var name="e1q2" val="1"/> 
+
+        <!-- Algebraic variables: POWER NETWORK MODEL -->
+		<Var name="theta1" val="0"/>
+		<Var name="theta2" val="0"/> 
+		<Var name="theta3" val="0"/>
+        <Var name="V1" val="1"/>
+		<Var name="V2" val="1"/> 
+		<Var name="V3" val="1"/>
+
+		<!-- Algebraic variables: Synchronous Generators -->
+		<Var name="id1" val="1"/>
+		<Var name="iq1" val="0"/>
+        <Var name="id2" val="1"/>
+		<Var name="iq2" val="0"/>
+	</Vars>
+	<Params dT="1e-4">  <!-- default integration step -->
+		<Param name="PI" val="3.14159265358979"/>
+		<Param name="fn" val="60"/>
+
+        <!-- Parameters of Synchrnous Machines -->
+		<Param name="D" val="1"/>
+		<Param name="M" val="13.3617"/>
+		<Param name="ra" val="0.002"/> 
+		<Param name="xd" val="0.9111"/>
+		<Param name="xq" val="0.58"/> 
+        <Param name="x1d" val="0.408"/>
+		<Param name="x1q" val="0.58"/>
+        <Param name="Td0p" val="4.2"/>
+        <Param name="Tq0p" val="3"/>
+		<Param name="ws" val="1"/>  
+        <Param name="wn" val="2*PI*fn"/>   
+
+        <!-- Admittance matrix -->
+         <!-- The first row -->
+        <Param name="G11" val="8"/>
+        <Param name="G12" val="0"/>
+        <Param name="G13" val="-8"/>
+		<Param name="B11" val="-24"/>
+        <Param name="B12" val="0"/>
+        <Param name="B13" val="24"/>
+         <!-- The second row -->
+        <Param name="G21" val="0"/>
+        <Param name="G22" val="2"/>
+        <Param name="G23" val="-2"/>
+		<Param name="B21" val="0"/>
+        <Param name="B22" val="-6"/>
+        <Param name="B23" val="6"/>
+         <!-- The third row -->
+        <Param name="G31" val="-8"/>
+        <Param name="G32" val="-2"/>
+        <Param name="G33" val="10"/>
+		<Param name="B31" val="24"/>
+        <Param name="B32" val="6"/>
+        <Param name="B33" val="-30"/>
+
+		<!-- Load powers -->
+		<Param name="Pl3" val="-0.5556"/>
+		<Param name="Ql3" val="-0.2778"/>
+
+		<!-- Initial values (initialization step) -->
+		<Param name="Vf1" val="1" out="true"/>
+		<Param name="Vf2" val="1" out="true"/>
+		<Param name="Pm1" val="1" out="true"/>
+		<Param name="Pm2" val="1" out="true"/>
+
+		<!-- Dynamic variables initialization -->
+		<Param name="w1_0" val="1"/>
+		<Param name="w2_0" val="1"/>
+
+		<!-- Generator powers (to compute) -->
+		<Param name="pg1" val="0" out="true"/>
+		<Param name="pg2" val="0" out="true"/>
+		<Param name="qg1" val="0" out="true"/>
+		<Param name="qg2" val="0" out="true"/>
+	</Params>
+	<!-- Calculate initial PF -->
+	<Init>
+		<Model type="NR" domain="real" eps="1e-6" name="PF Subproblem for DAE"> <!-- PF subproblem -->
+			<Vars>
+				<Var name="theta1" val="0"/>
+				<Var name="theta2" val="0"/> 
+				<Var name="theta3" val="0"/>
+        		<Var name="V1" val="1"/>
+				<Var name="V2" val="1"/> 
+				<Var name="V3" val="1"/>
+			</Vars>
+			<Params>
+				<Param name="V1_0" val="1"/> 
+				<Param name="theta1_0" val="0"/> 
+				<Param name="V2_0" val="0.99"/> 
+				<Param name="Pg2" val="0.2222"/> 
+
+				<Param name="I1r" val="1"/> 
+				<Param name="I1i" val="1"/>
+				<Param name="fi1" val="1"/> 
+				<Param name="I1" val="1"/>
+				<Param name="I2r" val="1"/> 
+				<Param name="I2i" val="1"/>
+				<Param name="fi2" val="1"/> 
+				<Param name="I2" val="1"/> 
+
+				<Param name="dR1" val="1"/>
+				<Param name="dI1" val="1"/> 
+				<Param name="dR2" val="1"/>
+				<Param name="dI2" val="1"/> 
+
+				<Param name="delta1" val="1"/> 
+				<Param name="delta2" val="1"/>
+
+				<Param name="vd1" val="1"/>    
+				<Param name="vd2" val="1"/>
+				<Param name="vq1" val="1"/> 
+				<Param name="vq2" val="1"/>
+				<Param name="id1" val="1"/> 
+				<Param name="id2" val="1"/>
+				<Param name="iq1" val="1"/> 
+				<Param name="iq2" val="1"/>
+
+				<Param name="e1d1" val="1"/> 
+				<Param name="e1q1" val="1"/>
+				<Param name="e1d2" val="1"/> 
+				<Param name="e1q2" val="1"/>
+			</Params>
+			<NLEqs>
+				<Eq fx="V1-V1_0"/>
+				<Eq fx="theta1-theta1_0"/>
+				<Eq fx="V2^2*G22+V2*V1*(G21*cos(theta2-theta1)+B21*sin(theta2-theta1))+V2*V3*(G23*cos(theta2-theta3)+B23*sin(theta2-theta3))-Pg2"/>
+				<Eq fx="V2-V2_0"/>
+				<Eq fx="V3^2*G33+V3*V1*(G31*cos(theta3-theta1)+B31*sin(theta3-theta1))+V2*V3*(G32*cos(theta3-theta2)+B32*sin(theta3-theta2))-Pl3"/>
+				<Eq fx="-V3^2*B33+V1*V3*(G31*sin(theta3-theta1)-B31*cos(theta3-theta1))+V2*V3*(G32*sin(theta3-theta2)-B32*cos(theta3-theta2))-Ql3"/>
+			</NLEqs>
+			<PostProc> 
+				<!-- Initialize algebraic variables of the power network model -->
+				<Eq fx="base.V1    = V1"/>
+				<Eq fx="base.V2    = V2"/>
+				<Eq fx="base.V3    = V3"/>
+				<Eq fx="base.theta1    = theta1"/>
+				<Eq fx="base.theta2    = theta2"/>
+				<Eq fx="base.theta3    = theta3"/>
+
+				<!-- Calcualate initial current that generator injects at steady state -->
+				<Eq fx="I1r = G11*V1*cos(theta1) - B11*V1*sin(theta1) + G13*V3*cos(theta3) - B13*V3*sin(theta3)"/>
+				<Eq fx="I1i = G11*V1*sin(theta1) + B11*V1*cos(theta1) + G13*V3*sin(theta3) + B13*V3*cos(theta3)"/>	
+				<Eq fx="fi1 = atg(I1i/I1r)"/>
+				<Eq fx="I1 = sqrt(I1r^2+I1i^2)"/>
+				<Eq fx="I2r = G21*V1*cos(theta1) - B21*V1*sin(theta1) + G22*V2*cos(theta2) - B22*V2*sin(theta2) + G23*V3*cos(theta3) - B23*V3*sin(theta3)"/>
+				<Eq fx="I2i = G21*V1*sin(theta1) + B21*V1*cos(theta1) + G22*V2*sin(theta2) + B22*V2*cos(theta2) + G23*V3*sin(theta3) + B23*V3*cos(theta3)"/>	
+				<Eq fx="fi2 = atg(I2i/I2r)"/>
+				<Eq fx="I2 = sqrt(I2r^2+I2i^2)"/>
+
+                <!--Initial rotor angles-->
+				<Eq fx="dR1=V1*cos(theta1)+ra*I1*cos(fi1)-xq*I1*sin(fi1)"/>
+				<Eq fx="dI1=V1*sin(theta1)+xq*I1*cos(fi1)+ra*I1*sin(fi1)"/>
+				<Eq fx="delta1=atg(dI1/dR1)"/>
+				<Eq fx="dR2=V2*cos(theta2)+ra*I2*cos(fi2)-xq*I2*sin(fi2)"/>
+				<Eq fx="dI2=V2*sin(theta2)+xq*I2*cos(fi2)+ra*I2*sin(fi2)"/>
+				<Eq fx="delta2=atg(dI2/dR2)"/>
+				<!-- Initialize -->
+				<Eq fx="base.delta1=delta1"/>
+				<Eq fx="base.delta2=delta2"/>
+
+				<!--Generator voltages and currents-->
+				<Eq fx="vd1=V1*cos(PI/2-delta1+theta1)"/>
+				<Eq fx="vq1=V1*sin(PI/2-delta1+theta1)"/>
+				<Eq fx="vd2=V2*cos(PI/2-delta2+theta2)"/>
+				<Eq fx="vq2=V2*sin(PI/2-delta2+theta2)"/>
+				<Eq fx="id1=I1*cos(PI/2-delta1+fi1)"/>
+				<Eq fx="iq1=I1*sin(PI/2-delta1+fi1)"/>
+				<Eq fx="id2=I2*cos(PI/2-delta2+fi2)"/>
+				<Eq fx="iq2=I2*sin(PI/2-delta2+fi2)"/>
+				<!-- Initialize -->
+				<Eq fx="base.id1=id1"/>
+				<Eq fx="base.iq1=iq1"/>
+				<Eq fx="base.id2=id2"/>
+				<Eq fx="base.iq2=iq2"/>
+
+                <!--Initial values of traniset voltages E1q, E1d-->
+                <Eq fx="e1q1=vq1+ra*iq1+x1d*id1"/>
+                <Eq fx="e1d1=vd1+ra*id1-x1q*iq1"/>
+                <Eq fx="e1q2=vq2+ra*iq2+x1d*id2"/>
+                <Eq fx="e1d2=vd2+ra*id2-x1q*iq2"/>
+				<Eq fx="base.e1q1=e1q1"/>
+                <Eq fx="base.e1d1=e1d1"/>
+                <Eq fx="base.e1q2=e1q2"/>
+                <Eq fx="base.e1d2=e1d2"/>
+
+                <!--Initialize mehcanical power inputs-->
+				<Eq fx="base.Pm1 = e1d1 * id1 + e1q1 * iq1 + (x1q - x1d) * id1 * iq1"/>
+				<Eq fx="base.Pm2 = e1d2 * id2 + e1q2 * iq2 + (x1q - x1d) * id2 * iq2"/>
+
+                <!--Initialize field voltages-->
+				<Eq fx="base.Vf1 = e1q1 + (xd-x1d)*id1"/>
+				<Eq fx="base.Vf2 = e1q2 + (xd-x1d)*id2"/>
+			</PostProc>	
+		</Model>
+	</Init>
+	<ODEqs>
+		<Eq fx="delta1'=wn*(w1-ws)"/> 
+		<Eq fx="w1'=(1/M)*(Pm1-e1d1*id1-e1q1*iq1-(x1q-x1d)*id1*iq1-D*(w1-ws))"/> 
+		<Eq fx="e1q1'=(1/Td0p)*(-e1q1-(xd-x1d)*id1+Vf1)"/> 
+        <Eq fx="e1d1'=(1/Tq0p)*(-e1d1+(xq-x1q)*iq1)"/> 
+        <Eq fx="delta2'=wn*(w2-ws)"/> 
+		<Eq fx="w2'=(1/M)*(Pm2-e1d2*id2-e1q2*iq2-(x1q-x1d)*id2*iq2-D*(w2-ws))"/>  
+        <Eq fx="e1q2'=(1/Td0p)*(-e1q2-(xd-x1d)*id2+Vf2)"/> 
+        <Eq fx="e1d2'=(1/Tq0p)*(-e1d2+(xq-x1q)*iq2)"/> 
+    </ODEqs>
+	<!-- Main problem (DAE), algebraic equations-->
+	<NLEqs>
+		<!-- Power Network equations (DAE)-->
+		<Eq fx="V1^2*G11+V1*V2*(G12*cos(theta1-theta2)+B12*sin(theta1-theta2))+V1*V3*(G13*cos(theta1-theta3)+B13*sin(theta1-theta3))  -  (V1*iq1*cos(theta1-delta1) - V1*id1*sin(theta1-delta1))"/>
+		<Eq fx="-V1^2*B11+V1*V2*(G12*sin(theta1-theta2)-B12*cos(theta1-theta2))+V1*V3*(G13*sin(theta1-theta3)-B13*cos(theta1-theta3)) -  (V1*id1*cos(theta1-delta1) + V1*iq1*sin(theta1-delta1))"/>
+		<Eq fx="V2^2*G22+V2*V1*(G21*cos(theta2-theta1)+B21*sin(theta2-theta1))+V2*V3*(G23*cos(theta2-theta3)+B23*sin(theta2-theta3))  -  (V2*iq2*cos(theta2-delta2) - V2*id2*sin(theta2-delta2))"/>
+		<Eq fx="-V2^2*B22+V1*V2*(G21*sin(theta2-theta1)-B21*cos(theta2-theta1))+V2*V3*(G23*sin(theta2-theta3)-B23*cos(theta2-theta3)) -  (V2*id2*cos(theta2-delta2) + V2*iq2*sin(theta2-delta2))"/>
+		<Eq fx="V3^2*G33+V3*V1*(G31*cos(theta3-theta1)+B31*sin(theta3-theta1))+V2*V3*(G32*cos(theta3-theta2)+B32*sin(theta3-theta2))  -  Pl3"/>
+		<Eq fx="-V3^2*B33+V1*V3*(G31*sin(theta3-theta1)-B31*cos(theta3-theta1))+V2*V3*(G32*sin(theta3-theta2)-B32*cos(theta3-theta2)) -  Ql3"/>
+		
+		<!-- Id & Iq synchronous generator algebraic equations-->
+		<Eq fx="e1d1 - V1 * sin(delta1-theta1) - ra * id1 + x1q*iq1 = 0"/>
+		<Eq fx="e1q1 - V1 * cos(delta1-theta1) - ra * iq1 - x1d*id1 = 0"/>
+		<Eq fx="e1d2 - V2 * sin(delta2-theta2) - ra * id2 + x1q*iq2 = 0"/>
+		<Eq fx="e1q2 - V2 * cos(delta2-theta2) - ra * iq2 - x1d*id2 = 0"/>
+	</NLEqs>
+	<PostProc>
+		<Eq fx="pg1 = V1*iq1*cos(theta1-delta1) - V1*id1*sin(theta1-delta1)"/>
+		<Eq fx="pg2 = V2*iq2*cos(theta2-delta2) - V2*id2*sin(theta2-delta2)"/>
+		<Eq fx="qg1 = V1*id1*cos(theta1-delta1) + V1*iq1*sin(theta1-delta1)"/>
+		<Eq fx="qg2 = V2*id2*cos(theta2-delta2) + V2*iq2*sin(theta2-delta2)"/>
+		<!-- PERTURBANCE -->
+		<Eq cond="t > 1">
+			<Then fx="Pl3 = -0.6"/>
+		</Eq>
+		<Eq cond="t > 3">
+			<Then fx="Pl3 = -0.55"/>
+		</Eq>
+	</PostProc>
+</Model>

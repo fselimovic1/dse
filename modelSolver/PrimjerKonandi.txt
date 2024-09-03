@@ -1,0 +1,6 @@
+1. Ulazni fajl sa Transfer Funkcijama (TF), PID Regulator, method RK4, korak integracije 0.01s, dužina 2s, rezultat u Res.zxz
+.\modelSolver.exe DAE real real\TF_Dorf_E7_7_PID_Mult_RK4.xml Res.txt 0 1e-2 2
+
+2. Crtanje grafa iz Res.txt fajla
+./plotSol.py Res.txt
+

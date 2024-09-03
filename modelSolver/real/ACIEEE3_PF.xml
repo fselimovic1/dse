@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Model type="NR" domain="real" name="PF">
+	<Vars>
+        <Var name="theta1" val="0"/>
+		<Var name="theta2" val="0"/> <!-- Variable name and its initial value (optional)-->
+		<Var name="theta3" val="0"/>
+        <Var name="V1" val="1"/>
+		<Var name="V2" val="1"/>
+		<Var name="V3" val="1"/>
+	</Vars>
+	<Params>
+        <!-- Admittance matrix -->
+		<!-- The first row -->
+        <Param name="G11" val="8"/>
+        <Param name="G12" val="0"/>
+        <Param name="G13" val="-8"/>
+		<Param name="B11" val="-24"/>
+        <Param name="B12" val="0"/>
+        <Param name="B13" val="24"/>
+         <!-- The second row -->
+        <Param name="G21" val="0"/>
+        <Param name="G22" val="2"/>
+        <Param name="G23" val="-2"/>
+		<Param name="B21" val="0"/>
+        <Param name="B22" val="-6"/>
+        <Param name="B23" val="6"/>
+         <!-- The third row -->
+        <Param name="G31" val="-8"/>
+        <Param name="G32" val="-2"/>
+        <Param name="G33" val="10"/>
+		<Param name="B31" val="24"/>
+        <Param name="B32" val="6"/>
+        <Param name="B33" val="-30"/>
+
+        <!-- Node powers -->
+		<Param name="p1" val="0.3387"/>
+		<Param name="p2" val="0.2222"/>
+		<Param name="p3" val="-0.5556"/>
+		<Param name="q1" val="0.3222"/>
+		<Param name="q2" val="-0.0285"/>
+		<Param name="q3" val="-0.2778"/>
+
+        <Param name="V1_0" val="1"/>
+        <Param name="theta1_0" val="0"/>
+	</Params>
+	<NLEqs>
+        <!-- Power injection equations -->
+		<!-- node 1 -->
+        <!--<Eq fx="V1-V1_0"/>
+        <Eq fx="theta1-theta1_0"/>-->
+        <Eq fx="V1^2*G11+V1*V2*(G12*cos(theta1-theta2)+B12*sin(theta1-theta2))+V1*V3*(G13*cos(theta1-theta3)+B13*sin(theta1-theta3))-p1"/>
+		<Eq fx="theta1-theta1_0"/>
+        <!-- node 2 -->
+		<Eq fx="V2^2*G22+V2*V1*(G21*cos(theta2-theta1)+B21*sin(theta2-theta1))+V2*V3*(G23*cos(theta2-theta3)+B23*sin(theta2-theta3))-p2"/>
+		<Eq fx="-V2^2*B22+V1*V2*(G21*sin(theta2-theta1)-B21*cos(theta2-theta1))+V2*V3*(G23*sin(theta2-theta3)-B23*cos(theta2-theta3))-q2"/>
+		<!-- node 3 -->
+        <Eq fx="V3^2*G33+V3*V1*(G31*cos(theta3-theta1)+B31*sin(theta3-theta1))+V2*V3*(G32*cos(theta3-theta2)+B32*sin(theta3-theta2))-p3"/>
+        <Eq fx="-V3^2*B33+V1*V3*(G31*sin(theta3-theta1)-B31*cos(theta3-theta1))+V2*V3*(G32*sin(theta3-theta2)-B32*cos(theta3-theta2))-q3"/>
+	</NLEqs>
+</Model>

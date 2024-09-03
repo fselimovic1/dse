@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three bus system with two generators modeled with two-axis (4th order) dynamic equations.-->
+<Model type="DAE" domain="real" method="Trapezoidal" eps="1e-6" name="psat4th test">
+	<Vars out="true">
+        <!-- Dynamic (state) variables -->
+		<Var name="delta" val="0.1634"/> 
+		<Var name="w" val="1"/>
+        <Var name="e1d" val="0"/> 
+        <Var name="e1q" val="1.1394"/> 
+        <Var name="pg" val="0.33869"/> 
+	</Vars>
+	<Params dT="1e-4">  <!-- default integration step -->
+		<Param name="PI" val="3.14159265358979"/>
+		<Param name="fn" val="60"/>
+        <Param name="wn" val="2*PI*fn"/> 
+
+        <!-- Parameters of Synchrnous Machines 13.3617 -->
+		<Param name="D" val="1"/>
+		<Param name="M" val="13.3617"/>
+		<Param name="ra" val="0.002"/> 
+		<Param name="xd" val="0.9111"/>
+		<Param name="xq" val="0.58"/> 
+        <Param name="x1d" val="0.408"/>
+		<Param name="x1q" val="0.58"/>
+        <Param name="T1d" val="4.2"/>
+        <Param name="T1q" val="3"/>
+        <Param name="ws" val="1"/>  
+
+        <Param name="Vf" val="1.32706"/> 
+        <Param name="V" val="1"/> 
+        <Param name="theta" val="0"/> 
+        <Param name="Pm" val="0.339128"/> 
+		<!-- Coefficients -->
+		<Param name="K" val="1/(ra^2 + x1q*x1d)"/>
+		<Param name="c1" val="ra * K"/>
+		<Param name="c2" val="x1d * K"/>
+		<Param name="c3" val="x1q * K"/>
+	</Params>
+	<ODEqs>
+		<Eq fx="delta'=wn * (w - ws)"/> 
+		<Eq fx="w'= 1/M * (Pm - pg - ra * ((-V * (c1 * sin(delta - theta) + c3 * cos(delta - theta)) + c1 * e1d + c3 * e1q)^2 + (V * (c2 * sin(delta - theta) - c1 * cos(delta - theta)) - c2 * e1d + c1 * e1q) ^2) - D * (w - ws))"/> 
+		<Eq fx="e1d'= 1 / T1q * (-e1d + (xq - x1q) * (V * (c2 * sin(delta - theta) - c1 * cos(delta - theta)) - c2 * e1d + c1 * e1q))"/> 
+        <Eq fx="e1q'= 1 / T1d * (-e1q + (xd - x1d) * (-V * (c1 * sin(delta - theta) + c3 * cos(delta - theta)) + c1 * e1d + c3 * e1q) + Vf)"/> 
+    </ODEqs>
+	<!-- Main problem (DAE), algebraic equations-->
+	<NLEqs>
+        <Eq fx= "pg = V * ((-V * (c1 * sin(delta - theta) + c3 * cos(delta - theta)) + c1 * e1d + c3 * e1q) * sin(delta - theta) + (V * (c2 * sin(delta - theta) - c1 * cos(delta - theta)) - c2 * e1d + c1 * e1q) * cos(delta- theta))" /> 
+	</NLEqs>
+</Model>
