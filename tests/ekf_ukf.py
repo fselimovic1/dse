@@ -4,13 +4,16 @@ import add_paths
 import matplotlib.pyplot as plt
 import json
 
+saveFigures = True
+
 EPS = 1e-6
 ms = 1e-3
 
 filename = "IEEE9_LoadOnTest";
 info = [ "EKF", "UKF" ];
 nmethods = len(info)
-variable2plot = "w6";
+colors = [ "orange", "slategrey" ]
+variable2plot = "w1";
 
 
 # Import simulation data
@@ -24,18 +27,32 @@ for i in range(len(info)):
         estdata[info[i]] = json.load(file);
 
 # Compare estimation results
-plt.plot(simdata["t[s]"], simdata[variable2plot], label = "True")
+plt.plot(simdata["t[s]"], simdata[variable2plot], label = "True", color="darkgreen", linewidth=2)
 for i in range(nmethods): 
-    plt.plot(estdata[info[i]]["t[s]"], estdata[info[i]][variable2plot], label = variable2plot + info[i])   
+    plt.plot(estdata[info[i]]["t[s]"], estdata[info[i]][variable2plot], label = info[i], color=colors[i])   
 plt.xlabel("time [s]")
 plt.ylabel(rf'${variable2plot}$')
 plt.legend()
-plt.show()
+
+if saveFigures:
+    fig = plt.gcf()  # Get the current figure
+    fig.set_size_inches(7, 5)
+    fig.savefig(fname="EKFvsUKF_w.png", dpi=800, bbox_inches='tight')
+else: 
+    plt.show()
 
 # Plot errors of the estimators
 plt.figure()
 for i in range(nmethods): 
-    plt.plot(estdata[info[i]]["t[s]"], estdata[info[i]]["errors"], label = variable2plot + info[i]) 
-
+    plt.plot(estdata[info[i]]["t[s]"], estdata[info[i]]["errors"], label = info[i], color=colors[i]) 
+plt.ylabel(r'$\xi$')
+plt.xlabel("time [s]")
 plt.legend()
-plt.show()
+
+if saveFigures:
+    fig = plt.gcf()  # Get the current figure
+    fig.set_size_inches(7, 5)
+    fig.savefig(fname="EKFvsUKF_errors.png", dpi=800, bbox_inches='tight')
+else: 
+    plt.show()
+

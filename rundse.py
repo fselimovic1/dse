@@ -10,7 +10,7 @@ from power_systems import case39
 
 
 filename = "IEEE9_LoadOnTest";
-info = "EKF";
+info = "UKF";
 
 EPS = 1e-6
 ms = 1e-3
@@ -25,9 +25,9 @@ settings["tstep"] = simdata["tstep"];
 
 # DSE settings
 saveEstData = True
-settings["dsemethod"] = "redy_ekf";
+settings["dsemethod"] = "redy_ukf";
 settings["nimethod"] = "forwardEuler";
-settings["estep"] = 10 * ms;
+settings["estep"] = 20 * ms;
 settings["nSG"] = 1;
 
 # Plot settings

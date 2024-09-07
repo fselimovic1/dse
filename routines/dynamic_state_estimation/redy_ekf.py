@@ -48,8 +48,8 @@ def redy_ekf(settings, ppc, simdata):
     states = np.empty((ns, tsteps_est))
     time = np.zeros(tsteps_est);
     states_plus = np.hstack((np.ones(ng), np.zeros(ng)))
-    #for k in range(ng):
-    #    states_plus[k + ng] = simdata["delta" + str(k + 1)][1]
+    for k in range(ng):
+        states_plus[k + ng] = simdata["delta" + str(k + 1)][1] + np.random.randn() * 1e-2;
     states_minus = np.zeros(ns);
 
     # covariance matrices
@@ -57,7 +57,7 @@ def redy_ekf(settings, ppc, simdata):
     sigma_v = 1e-2
     Q = sigma_w **2 *  np.eye(ns);
     R = sigma_v **2 * np.eye(nm);
-    P = 1e-4 * np.eye(ns);
+    P = 1e-3 * np.eye(ns);
     
     # Constants in this simulation
     for i in range(ng):
