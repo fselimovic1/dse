@@ -36,17 +36,18 @@ def chow_sauer_pai_4th_ekf(settings, ppc, simdata):
     # KALMAN FILTER PARAMETERS - intitialization
     delta, w, e1d, e1q = sp.symbols('delta, w, e1d, e1q')
     states = np.empty((modelorder, tsteps_est))
-    states_plus = np.array([0.163405815186294, 1, 0, 1.13941982995182]);
+    states_plus = np.array([0, 1, 0, 1]);
+    # states_plus = np.array([0.163405815186294, 1, 0, 1.13941982995182]);
     F = np.zeros((modelorder, modelorder));
 
     # covariance matrices
-    sigmaw = 5e-1;
-    sigmav = 1e-2;
+    sigmaw = 1e-2;
+    sigmav = 1e-1;
     Q = sigmaw **2 * np.eye(modelorder)
     R = sigmav**2 * np.eye(nm);
     P = 100 * np.eye(modelorder);
 
-
+    l = 0
     for i in range(1, tsteps_sim, dT):
         # PMU measurements
         Pe = simdata["pg" + str(noSG)][i] * (1 + np.random.normal(scale=0.005));

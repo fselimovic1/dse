@@ -239,10 +239,10 @@
 		<Eq fx="qg1 = V1*id1*cos(theta1-delta1) + V1*iq1*sin(theta1-delta1)"/>
 		<Eq fx="qg2 = V2*id2*cos(theta2-delta2) + V2*iq2*sin(theta2-delta2)"/>
 		<!-- PERTURBANCE -->
-		<Eq cond="t > 1">
+		<Eq cond="t > 11">
 			<Then fx="Pl3 = -0.6"/>
 		</Eq>
-		<Eq cond="t > 3">
+		<Eq cond="t > 31">
 			<Then fx="Pl3 = -0.55"/>
 		</Eq>
 	</PostProc>

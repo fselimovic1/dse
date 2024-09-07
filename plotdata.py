@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import json
 
-filename = "IEEE9_LoadOnTest";
+filename = "ThreeBusDynamics_SG4";
 variable2plot = "w";
 
 plot_estdata = True

@@ -9,7 +9,7 @@ from routines.time_domain.constZ2nd import constZ2nd
 from power_systems import case3
 
 
-filename = "IEEE9_LoadOnTest";
+filename = "ThreeBusDynamics_SG4";
 
 EPS = 1e-6
 ms = 1e-3
@@ -24,7 +24,7 @@ settings["tstep"] = simdata["tstep"];
 
 # DSE settings
 saveEstData = True
-settings["dsemethod"] = "redy_ekf";
+settings["dsemethod"] = "chow_sauer_pai_4th_ekf";
 settings["nimethod"] = "forwardEuler";
 settings["estep"] = 20 * ms;
 settings["nSG"] = 1;

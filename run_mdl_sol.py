@@ -17,14 +17,14 @@ EPS = 1e-6
 ms = 1e-3
 
 # Specify name of the prepared power system or type 'TBD' if you want to generate new power system XML file
-powsys = "TBD";
+powsys = "ThreeBusDynamics_SG4";
 nb = 3;
 ng = 2;
 # Insert filename in the case of new XML file
 filename = "IEEE9_LoadOnTest";
 
 # Simuluation SETTINGS
-settings = { "time": 5 };
+settings = { "time": 20 };
 settings["tstep"] = 1 * ms;
 settings["nimethod"] = "RK2";
 settings["v2plot"] = "w";
@@ -41,8 +41,8 @@ settings["debug"] = False;
 # 3 Line fault: {"etype": "lfault", "noLine": 25 } -> to be updated
 # 4 Line removal: {"etype": "lrem", "noLine": 25 }
 settings["event"] = { "etype": "loadOn", "power": 10 }
-settings["etime_s"] = 1
-settings["etime_e"] = 6
+settings["etime_s"] = 11
+settings["etime_e"] = 61
 
 
 if powsys == "TBD":
