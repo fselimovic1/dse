@@ -6,10 +6,11 @@ from process_data import process_data
 from acquire_data import acquire_data
 from routines.dynamic_state_estimation import dse
 from routines.time_domain.constZ2nd import constZ2nd
-from power_systems import case3
+from power_systems import case39
 
 
-filename = "ThreeBusDynamics_SG4";
+filename = "IEEE9_LoadOnTest";
+info = "EKF";
 
 EPS = 1e-6
 ms = 1e-3
@@ -24,9 +25,9 @@ settings["tstep"] = simdata["tstep"];
 
 # DSE settings
 saveEstData = True
-settings["dsemethod"] = "chow_sauer_pai_4th_ekf";
+settings["dsemethod"] = "redy_ekf";
 settings["nimethod"] = "forwardEuler";
-settings["estep"] = 20 * ms;
+settings["estep"] = 10 * ms;
 settings["nSG"] = 1;
 
 # Plot settings
@@ -35,13 +36,13 @@ settings["metrics"] = False;
 settings["v2plot"] = "e1q";
 
 # Dynamic State Estimation (DSE)
-ppc = process_data(case3.case3())
+ppc = process_data(case39.case39())
 results = dse.rundse(settings, ppc, simdata)
 var = settings["v2plot"] + str(settings["nSG"]);
 
 # Save estimation data
 if saveEstData:  
-    with open("data/" + filename + "_estdata" + '.json', 'w') as file:
+    with open("data/" + filename + "_estdata" + info + '.json', 'w') as file:
         # Complement with general data
         results["nSG"] = settings["nSG"];
         # Step 3: Write the dictionary to the file

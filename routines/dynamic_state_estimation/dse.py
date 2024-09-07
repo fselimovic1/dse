@@ -38,7 +38,7 @@ def rundse(settings, ppc, simdata):
         results = chow_sauer_pai_4th_ekf.chow_sauer_pai_4th_ekf(settings, ppc, simdata);
     
     
-    if settings["metrics"]:
-        results["rmse"] = performetrics(results, simdata)
+    #if settings["metrics"]:
+     #   results["rmse"] = performetrics(results, simdata)
     
     return results;

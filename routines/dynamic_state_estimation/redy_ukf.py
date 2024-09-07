@@ -6,9 +6,10 @@ from scipy.linalg import sqrtm
 
 def redy_ukf(settings, ppc, simdata): 
 
-    t = simdata["t[s]"]
-    tstep = settings["estep"]
-    tsteps = len(t) - 1 
+    dT = round(settings["estep"]/settings["tstep"]);
+    tsteps_sim = len(simdata["t[s]"]);
+    tsteps_est = math.floor((tsteps_sim - 1)/dT);
+    tstep = settings["estep"];
 
     ws = 1
     wn = 2 * math.pi * ppc["fn"]
@@ -16,13 +17,11 @@ def redy_ukf(settings, ppc, simdata):
     nb = ppc["bus"].shape[0]
     ng = ppc["gen"].shape[0]
 
-
-    vars = [];
-
     # SG data
     M = ppc["sg"][:, 17];
     D = ppc["sg"][:, 18];
-
+    
+    vars = [];
     # define states' names
     for i in range(ng):
         vars.append("w" + str(i + 1));
@@ -48,36 +47,41 @@ def redy_ukf(settings, ppc, simdata):
     z_va = np.zeros(nb);
 
     # KALMAN FILTER PARAMETERS
-    states = np.empty((ns, tsteps))
+    states = np.empty((ns, tsteps_est));
+    time = np.zeros(tsteps_est);
     states_plus = np.hstack((np.ones(ng), np.zeros(ng)))
-    for k in range(ng):
-        states_plus[k + ng] = simdata["delta" + str(k + 1)][1]
+    #for k in range(ng):
+    #    states_plus[k + ng] = simdata["delta" + str(k + 1)][1]
     states_minus = np.zeros(ns);
 
     # covariance matrices
-    sigma_w = 1e-3
+    sigma_w = 1e-2
     sigma_v = 1e-2
     Q = sigma_w **2 *  np.eye(ns);
     R = sigma_v **2 * np.eye(nm);
     P = 1e-4 * np.eye(ns);
 
     # UKF parameters
-    alfa = 0.25;
+    alfa = 0.15;
     beta = 2;
     kappa = 0;
     d = alfa **2 * (modelorder + kappa) - modelorder
 
     # Constants in this simulation
     for i in range(ng):
-         Eg[i] = simdata["E" + str(i + 1)];
-         Pm[i] = simdata["pm" + str(i + 1)];
+         Eg[i] = simdata["E" + str(i + 1)][0];
+         Pm[i] = simdata["Pm" + str(i + 1)][0];
 
     sigma_xp = np.empty((modelorder, 2 * modelorder + 1))
     sigma_fx = np.empty((modelorder, 2 * modelorder + 1))
     sigma_xm = np.empty((modelorder, 2 * modelorder + 1))
     sigma_hx = np.empty((nm, 2 * modelorder + 1)) 
 
-    for i in range(tsteps):
+    # Performance metrics - optional
+    error = np.zeros(tsteps_est);
+
+    idx = 0;
+    for i in range(1, tsteps_sim, dT):
         # Measurements and inputs (Tm, Ef, ...)
         for j in range(ng):
             z_pg[j] = simdata["pg" + str(j + 1)][i] * (1 + np.random.normal() * 1e-3);
@@ -89,9 +93,9 @@ def redy_ukf(settings, ppc, simdata):
         
         z = np.hstack((z_pg, z_qg, z_vm, z_va))
         
-        if i != 0:
+        if i != 1:
             # CORRECTION STEP
-            sqrtP = sqrtm(P)
+            sqrtP = sqrtm(P);
             sigma_xm[:, 0] = states_minus;
             hx = np.zeros(nm)
             G = np.zeros((nm, nm));
@@ -173,11 +177,27 @@ def redy_ukf(settings, ppc, simdata):
                 P += (d/(modelorder + d) + (1 - alfa**2 + beta)) * (diff) @ np.transpose(diff);
             else:
                 P += 1/(2 * modelorder + 2 * d) * (diff) @ np.transpose(diff);
-
         P = P + Q;
-        states[:, i] = states_plus
 
-    results = {"states": states}
-    results["snames"] = vars
+        states[:, idx] = states_plus;
+        time[idx] = idx * tstep;
+
+        # Performance evaluation
+        err = 0;
+        for k in range(len(vars)):
+            err = err + np.abs(simdata[vars[k]][i] - states_plus[k]);
+        error[idx] = err;
+        
+        idx = idx + 1;
+        if idx == tsteps_est:
+            break
+
+    # Save results
+    results = {"vars" : vars};
+    for i in range(len(vars)):
+        results[vars[i]] = states[i, :].tolist();
+    results["t[s]"] = time.tolist();
+    results["errors"] = error.tolist();
+    results["dT"] = dT;
 
     return results;

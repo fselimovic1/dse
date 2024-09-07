@@ -4,7 +4,7 @@ import math
 
 def redy_ekf(settings, ppc, simdata): 
 
-    dT = int(settings["estep"]/settings["tstep"]);
+    dT = round(settings["estep"]/settings["tstep"]);
     tsteps_sim = len(simdata["t[s]"]);
     tsteps_est = math.floor((tsteps_sim - 1)/dT);
     tstep = settings["estep"];
@@ -46,27 +46,30 @@ def redy_ekf(settings, ppc, simdata):
 
     # KALMAN FILTER PARAMETERS
     states = np.empty((ns, tsteps_est))
+    time = np.zeros(tsteps_est);
     states_plus = np.hstack((np.ones(ng), np.zeros(ng)))
-    for k in range(ng):
-        states_plus[k + ng] = simdata["delta" + str(k + 1)][1]
+    #for k in range(ng):
+    #    states_plus[k + ng] = simdata["delta" + str(k + 1)][1]
     states_minus = np.zeros(ns);
 
     # covariance matrices
     sigma_w = 1e-2
-    sigma_v = 1e-3
+    sigma_v = 1e-2
     Q = sigma_w **2 *  np.eye(ns);
     R = sigma_v **2 * np.eye(nm);
-    P = 1e-3 * np.eye(ns);
+    P = 1e-4 * np.eye(ns);
     
     # Constants in this simulation
     for i in range(ng):
          Eg[i] = simdata["E" + str(i + 1)][0];
          Pm[i] = simdata["Pm" + str(i + 1)][0];
+    
+    # Performance metrics - optional
+    error = np.zeros(tsteps_est);
 
-    max_idx = 0;
-    l = 0;
+    idx = 0;
     for i in range(1, tsteps_sim, dT):
-        # Measurements and inputs (Tm, Ef, ...)
+        # Measurements
         for j in range(ng):
             z_pg[j] = simdata["pg" + str(j + 1)][i] * (1 + np.random.normal() * 1e-3);
             z_qg[j] = simdata["qg" + str(j + 1)][i] * (1 + np.random.normal() * 1e-3);
@@ -139,16 +142,25 @@ def redy_ekf(settings, ppc, simdata):
                     dwF[j, k] = -tstep/M[j] * Eg[j] * Eg[kk] * (G[j, kk] * np.sin(states_plus[j] - states_plus[kk]) - B[j, kk] * np.cos(states_plus[j] - states_plus[kk])) 
         F = np.vstack((dwF, ddeltaF));
         P = F @ P @ np.transpose(F) + Q;
-        states[:, l] = states_plus
-        l = l + 1;
-        max_idx = i;
+        states[:, idx] = states_plus;
+        time[idx] = idx * tstep;
 
-    results = {"states": states}
-    results["snames"] = vars
+        # Performance evaluation
+        err = 0;
+        for k in range(len(vars)):
+            err = err + np.abs(simdata[vars[k]][i] - states_plus[k]);
+        error[idx] = err;
+
+        idx = idx + 1;
+        if idx == tsteps_est:
+            break
+
     # Save results
     results = {"vars" : vars};
     for i in range(len(vars)):
         results[vars[i]] = states[i, :].tolist();
-    results["max_idx"] = int(max_idx);
+    results["t[s]"] = time.tolist();
+    results["errors"] = error.tolist();
     results["dT"] = dT;
+
     return results;

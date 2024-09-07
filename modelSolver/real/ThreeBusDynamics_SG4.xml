@@ -234,6 +234,7 @@
 		<Eq fx="e1q2 - V2 * cos(delta2-theta2) - ra * iq2 - x1d*id2 = 0"/>
 	</NLEqs>
 	<PostProc>
+		<Eq fx="w1=1.001"/>	
 		<Eq fx="pg1 = V1*iq1*cos(theta1-delta1) - V1*id1*sin(theta1-delta1)"/>
 		<Eq fx="pg2 = V2*iq2*cos(theta2-delta2) - V2*id2*sin(theta2-delta2)"/>
 		<Eq fx="qg1 = V1*id1*cos(theta1-delta1) + V1*iq1*sin(theta1-delta1)"/>

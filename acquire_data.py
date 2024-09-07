@@ -1,6 +1,6 @@
-import numpy as np
+import numpy as np, random
 
-def acquire_data(fileName):
+def acquire_data(fileName, addNoise):
     solution_data_found = False
     count = 0
     first_row = True
@@ -24,7 +24,11 @@ def acquire_data(fileName):
             if solution_data_found and (line.strip() == "---------------------------" or line.strip() == "------------------------"):
                 count += 1;
     sim_data = dict();
+    #tsteps = data.shape[0];
+    #noise = np.zeros((tsteps, 1))
     for i in range(0,len(vars)):
-        sim_data[vars[i]] = data[:, i].tolist()
+        #if addNoise:
+         #   noise = np.random.randn(tsteps) * 1e-4;
+        sim_data[vars[i]] = (data[:, i]).tolist()
     return sim_data
 

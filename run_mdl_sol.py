@@ -7,8 +7,8 @@ import pandas as pd
 import numpy as np
 import json
 
-from power_systems import case3
-ppc = process_data(case3.case3())
+from power_systems import case39
+ppc = process_data(case39.case39())
 
 saveSimData = True;
 plotSimData = False;
@@ -17,16 +17,17 @@ EPS = 1e-6
 ms = 1e-3
 
 # Specify name of the prepared power system or type 'TBD' if you want to generate new power system XML file
-powsys = "ThreeBusDynamics_SG4";
-nb = 3;
-ng = 2;
+# ThreeBusDynamics_SG4
+powsys = "TBD";
+nb = 9;
+ng = 3;
 # Insert filename in the case of new XML file
 filename = "IEEE9_LoadOnTest";
 
 # Simuluation SETTINGS
-settings = { "time": 20 };
+settings = { "time": 3 };
 settings["tstep"] = 1 * ms;
-settings["nimethod"] = "RK2";
+settings["nimethod"] = "Trapezoidal";
 settings["v2plot"] = "w";
 settings["EPS"] = 1e-4;
 
@@ -40,9 +41,9 @@ settings["debug"] = False;
 # 2 Bus fault: { "etype": "bbfault", "noBus": 4 }
 # 3 Line fault: {"etype": "lfault", "noLine": 25 } -> to be updated
 # 4 Line removal: {"etype": "lrem", "noLine": 25 }
-settings["event"] = { "etype": "loadOn", "power": 10 }
-settings["etime_s"] = 11
-settings["etime_e"] = 61
+settings["event"] = { "etype": "loadOn", "power": 2 }
+settings["etime_s"] = 1.4
+settings["etime_e"] = 4
 
 
 if powsys == "TBD":
@@ -62,7 +63,7 @@ os.system(msCommand);
 os.chdir("..")
 
 # Save simulated data as CSV file
-simdata = acquire_data(outputFile)
+simdata = acquire_data(outputFile, False)
 
 # Plot results
 if plotSimData:
