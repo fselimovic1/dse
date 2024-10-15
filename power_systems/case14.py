@@ -22,7 +22,7 @@ def case14():
     @return: Power flow data for IEEE 14 bus test case.
     """
     ppc = {"version": '2'}
-
+    ppc["processed"] = False; 
     ##-----  Power Flow Data  -----##
     ## system MVA base
     ppc["baseMVA"] = 100.0

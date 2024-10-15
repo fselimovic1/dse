@@ -4,7 +4,7 @@ import add_paths
 import matplotlib.pyplot as plt
 from process_data import process_data
 from acquire_data import acquire_data
-from routines.time_domain.xml4DAE import xml4DAE
+from routines.time_domain.xml4DAE_CMNNE import xml4DAE
 import numpy as np
 
 

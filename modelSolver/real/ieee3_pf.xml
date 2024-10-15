@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model type="NR" domain="real" name="ieee3_pf" eps="1e-06">
+    <Vars out="true">
+        <Var name="V1" val="1.04"/>
+        <Var name="theta1" val="0"/>
+        <Var name="V2" val="1.025"/>
+        <Var name="theta2" val="0"/>
+        <Var name="V3" val="1.025"/>
+        <Var name="theta3" val="0"/>
+        <Var name="V4" val="1"/>
+        <Var name="theta4" val="0"/>
+        <Var name="V5" val="1"/>
+        <Var name="theta5" val="0"/>
+        <Var name="V6" val="1"/>
+        <Var name="theta6" val="0"/>
+        <Var name="V7" val="1"/>
+        <Var name="theta7" val="0"/>
+        <Var name="V8" val="1"/>
+        <Var name="theta8" val="0"/>
+        <Var name="V9" val="1"/>
+        <Var name="theta9" val="0"/>
+    </Vars>
+    <Params>
+        <Param name="V1_0" val="1.04"/>
+        <Param name="theta1_0" val="0"/>
+        <Param name="V2_0" val="1.025"/>
+        <Param name="pg2_0" val="1.63"/>
+        <Param name="V3_0" val="1.025"/>
+        <Param name="pg3_0" val="0.85"/>
+        <Param name="pl1_0" val="0.0"/>
+        <Param name="ql1_0" val="0.0"/>
+        <Param name="pl2_0" val="0.0"/>
+        <Param name="ql2_0" val="0.0"/>
+        <Param name="pl3_0" val="0.0"/>
+        <Param name="ql3_0" val="0.0"/>
+        <Param name="pl4_0" val="0.0"/>
+        <Param name="ql4_0" val="0.0"/>
+        <Param name="pl5_0" val="0.9"/>
+        <Param name="ql5_0" val="0.3"/>
+        <Param name="pl6_0" val="0.0"/>
+        <Param name="ql6_0" val="0.0"/>
+        <Param name="pl7_0" val="1.0"/>
+        <Param name="ql7_0" val="0.35"/>
+        <Param name="pl8_0" val="0.0"/>
+        <Param name="ql8_0" val="0.0"/>
+        <Param name="pl9_0" val="1.25"/>
+        <Param name="ql9_0" val="0.5"/>
+        <Param name="G_1_1" val="0.0"/>
+        <Param name="B_1_1" val="-17.36111111111111"/>
+        <Param name="G_1_2" val="0.0"/>
+        <Param name="B_1_2" val="0.0"/>
+        <Param name="G_1_3" val="0.0"/>
+        <Param name="B_1_3" val="0.0"/>
+        <Param name="G_1_4" val="0.0"/>
+        <Param name="B_1_4" val="17.36111111111111"/>
+        <Param name="G_1_5" val="0.0"/>
+        <Param name="B_1_5" val="0.0"/>
+        <Param name="G_1_6" val="0.0"/>
+        <Param name="B_1_6" val="0.0"/>
+        <Param name="G_1_7" val="0.0"/>
+        <Param name="B_1_7" val="0.0"/>
+        <Param name="G_1_8" val="0.0"/>
+        <Param name="B_1_8" val="0.0"/>
+        <Param name="G_1_9" val="0.0"/>
+        <Param name="B_1_9" val="0.0"/>
+        <Param name="G_2_1" val="0.0"/>
+        <Param name="B_2_1" val="0.0"/>
+        <Param name="G_2_2" val="0.0"/>
+        <Param name="B_2_2" val="-16.0"/>
+        <Param name="G_2_3" val="0.0"/>
+        <Param name="B_2_3" val="0.0"/>
+        <Param name="G_2_4" val="0.0"/>
+        <Param name="B_2_4" val="0.0"/>
+        <Param name="G_2_5" val="0.0"/>
+        <Param name="B_2_5" val="0.0"/>
+        <Param name="G_2_6" val="0.0"/>
+        <Param name="B_2_6" val="0.0"/>
+        <Param name="G_2_7" val="0.0"/>
+        <Param name="B_2_7" val="0.0"/>
+        <Param name="G_2_8" val="0.0"/>
+        <Param name="B_2_8" val="16.0"/>
+        <Param name="G_2_9" val="0.0"/>
+        <Param name="B_2_9" val="0.0"/>
+        <Param name="G_3_1" val="0.0"/>
+        <Param name="B_3_1" val="0.0"/>
+        <Param name="G_3_2" val="0.0"/>
+        <Param name="B_3_2" val="0.0"/>
+        <Param name="G_3_3" val="0.0"/>
+        <Param name="B_3_3" val="-17.064846416382252"/>
+        <Param name="G_3_4" val="0.0"/>
+        <Param name="B_3_4" val="0.0"/>
+        <Param name="G_3_5" val="0.0"/>
+        <Param name="B_3_5" val="0.0"/>
+        <Param name="G_3_6" val="0.0"/>
+        <Param name="B_3_6" val="17.064846416382252"/>
+        <Param name="G_3_7" val="0.0"/>
+        <Param name="B_3_7" val="0.0"/>
+        <Param name="G_3_8" val="0.0"/>
+        <Param name="B_3_8" val="0.0"/>
+        <Param name="G_3_9" val="0.0"/>
+        <Param name="B_3_9" val="0.0"/>
+        <Param name="G_4_1" val="0.0"/>
+        <Param name="B_4_1" val="17.36111111111111"/>
+        <Param name="G_4_2" val="0.0"/>
+        <Param name="B_4_2" val="0.0"/>
+        <Param name="G_4_3" val="0.0"/>
+        <Param name="B_4_3" val="0.0"/>
+        <Param name="G_4_4" val="3.3073789620253065"/>
+        <Param name="B_4_4" val="-39.30888872611897"/>
+        <Param name="G_4_5" val="-1.9421912487147266"/>
+        <Param name="B_4_5" val="10.510682051867931"/>
+        <Param name="G_4_6" val="0.0"/>
+        <Param name="B_4_6" val="0.0"/>
+        <Param name="G_4_7" val="0.0"/>
+        <Param name="B_4_7" val="0.0"/>
+        <Param name="G_4_8" val="0.0"/>
+        <Param name="B_4_8" val="0.0"/>
+        <Param name="G_4_9" val="-1.36518771331058"/>
+        <Param name="B_4_9" val="11.60409556313993"/>
+        <Param name="G_5_1" val="0.0"/>
+        <Param name="B_5_1" val="0.0"/>
+        <Param name="G_5_2" val="0.0"/>
+        <Param name="B_5_2" val="0.0"/>
+        <Param name="G_5_3" val="0.0"/>
+        <Param name="B_5_3" val="0.0"/>
+        <Param name="G_5_4" val="-1.9421912487147266"/>
+        <Param name="B_5_4" val="10.510682051867931"/>
+        <Param name="G_5_5" val="3.2242003871388416"/>
+        <Param name="B_5_5" val="-15.840927014229457"/>
+        <Param name="G_5_6" val="-1.2820091384241148"/>
+        <Param name="B_5_6" val="5.588244962361526"/>
+        <Param name="G_5_7" val="0.0"/>
+        <Param name="B_5_7" val="0.0"/>
+        <Param name="G_5_8" val="0.0"/>
+        <Param name="B_5_8" val="0.0"/>
+        <Param name="G_5_9" val="0.0"/>
+        <Param name="B_5_9" val="0.0"/>
+        <Param name="G_6_1" val="0.0"/>
+        <Param name="B_6_1" val="0.0"/>
+        <Param name="G_6_2" val="0.0"/>
+        <Param name="B_6_2" val="0.0"/>
+        <Param name="G_6_3" val="0.0"/>
+        <Param name="B_6_3" val="17.064846416382252"/>
+        <Param name="G_6_4" val="0.0"/>
+        <Param name="B_6_4" val="0.0"/>
+        <Param name="G_6_5" val="-1.2820091384241148"/>
+        <Param name="B_6_5" val="5.588244962361526"/>
+        <Param name="G_6_6" val="2.437096619314212"/>
+        <Param name="B_6_6" val="-32.153861805106956"/>
+        <Param name="G_6_7" val="-1.155087480890097"/>
+        <Param name="B_6_7" val="9.784270426363173"/>
+        <Param name="G_6_8" val="0.0"/>
+        <Param name="B_6_8" val="0.0"/>
+        <Param name="G_6_9" val="0.0"/>
+        <Param name="B_6_9" val="0.0"/>
+        <Param name="G_7_1" val="0.0"/>
+        <Param name="B_7_1" val="0.0"/>
+        <Param name="G_7_2" val="0.0"/>
+        <Param name="B_7_2" val="0.0"/>
+        <Param name="G_7_3" val="0.0"/>
+        <Param name="B_7_3" val="0.0"/>
+        <Param name="G_7_4" val="0.0"/>
+        <Param name="B_7_4" val="0.0"/>
+        <Param name="G_7_5" val="0.0"/>
+        <Param name="B_7_5" val="0.0"/>
+        <Param name="G_7_6" val="-1.155087480890097"/>
+        <Param name="B_7_6" val="9.784270426363173"/>
+        <Param name="G_7_7" val="2.772209954136233"/>
+        <Param name="B_7_7" val="-23.30324902327162"/>
+        <Param name="G_7_8" val="-1.6171224732461358"/>
+        <Param name="B_7_8" val="13.697978596908444"/>
+        <Param name="G_7_9" val="0.0"/>
+        <Param name="B_7_9" val="0.0"/>
+        <Param name="G_8_1" val="0.0"/>
+        <Param name="B_8_1" val="0.0"/>
+        <Param name="G_8_2" val="0.0"/>
+        <Param name="B_8_2" val="16.0"/>
+        <Param name="G_8_3" val="0.0"/>
+        <Param name="B_8_3" val="0.0"/>
+        <Param name="G_8_4" val="0.0"/>
+        <Param name="B_8_4" val="0.0"/>
+        <Param name="G_8_5" val="0.0"/>
+        <Param name="B_8_5" val="0.0"/>
+        <Param name="G_8_6" val="0.0"/>
+        <Param name="B_8_6" val="0.0"/>
+        <Param name="G_8_7" val="-1.6171224732461358"/>
+        <Param name="B_8_7" val="13.697978596908444"/>
+        <Param name="G_8_8" val="2.804726852537284"/>
+        <Param name="B_8_8" val="-35.44561313021703"/>
+        <Param name="G_8_9" val="-1.1876043792911484"/>
+        <Param name="B_8_9" val="5.975134533308591"/>
+        <Param name="G_9_1" val="0.0"/>
+        <Param name="B_9_1" val="0.0"/>
+        <Param name="G_9_2" val="0.0"/>
+        <Param name="B_9_2" val="0.0"/>
+        <Param name="G_9_3" val="0.0"/>
+        <Param name="B_9_3" val="0.0"/>
+        <Param name="G_9_4" val="-1.36518771331058"/>
+        <Param name="B_9_4" val="11.60409556313993"/>
+        <Param name="G_9_5" val="0.0"/>
+        <Param name="B_9_5" val="0.0"/>
+        <Param name="G_9_6" val="0.0"/>
+        <Param name="B_9_6" val="0.0"/>
+        <Param name="G_9_7" val="0.0"/>
+        <Param name="B_9_7" val="0.0"/>
+        <Param name="G_9_8" val="-1.1876043792911484"/>
+        <Param name="B_9_8" val="5.975134533308591"/>
+        <Param name="G_9_9" val="2.5527920926017282"/>
+        <Param name="B_9_9" val="-17.338230096448523"/>
+    </Params>
+    <NLEqs>
+        <Eq fx="V1 - V1_0 = 0"/>
+        <Eq fx="theta1 - theta1_0 = 0"/>
+        <Eq fx="V2 - V2_0 = 0"/>
+        <Eq fx="V2^2*G_2_2+ V2*V1*(G_2_1*cos(theta2- theta1) + B_2_1*sin(theta2 - theta1))+ V2*V3*(G_2_3*cos(theta2- theta3) + B_2_3*sin(theta2 - theta3))+ V2*V4*(G_2_4*cos(theta2- theta4) + B_2_4*sin(theta2 - theta4))+ V2*V5*(G_2_5*cos(theta2- theta5) + B_2_5*sin(theta2 - theta5))+ V2*V6*(G_2_6*cos(theta2- theta6) + B_2_6*sin(theta2 - theta6))+ V2*V7*(G_2_7*cos(theta2- theta7) + B_2_7*sin(theta2 - theta7))+ V2*V8*(G_2_8*cos(theta2- theta8) + B_2_8*sin(theta2 - theta8))+ V2*V9*(G_2_9*cos(theta2- theta9) + B_2_9*sin(theta2 - theta9)) - pg2_0"/>
+        <Eq fx="V3 - V3_0 = 0"/>
+        <Eq fx="V3^2*G_3_3+ V3*V1*(G_3_1*cos(theta3- theta1) + B_3_1*sin(theta3 - theta1))+ V3*V2*(G_3_2*cos(theta3- theta2) + B_3_2*sin(theta3 - theta2))+ V3*V4*(G_3_4*cos(theta3- theta4) + B_3_4*sin(theta3 - theta4))+ V3*V5*(G_3_5*cos(theta3- theta5) + B_3_5*sin(theta3 - theta5))+ V3*V6*(G_3_6*cos(theta3- theta6) + B_3_6*sin(theta3 - theta6))+ V3*V7*(G_3_7*cos(theta3- theta7) + B_3_7*sin(theta3 - theta7))+ V3*V8*(G_3_8*cos(theta3- theta8) + B_3_8*sin(theta3 - theta8))+ V3*V9*(G_3_9*cos(theta3- theta9) + B_3_9*sin(theta3 - theta9)) - pg3_0"/>
+        <Eq fx="V4^2*G_4_4+ V4*V1*(G_4_1*cos(theta4- theta1) + B_4_1*sin(theta4 - theta1))+ V4*V2*(G_4_2*cos(theta4- theta2) + B_4_2*sin(theta4 - theta2))+ V4*V3*(G_4_3*cos(theta4- theta3) + B_4_3*sin(theta4 - theta3))+ V4*V5*(G_4_5*cos(theta4- theta5) + B_4_5*sin(theta4 - theta5))+ V4*V6*(G_4_6*cos(theta4- theta6) + B_4_6*sin(theta4 - theta6))+ V4*V7*(G_4_7*cos(theta4- theta7) + B_4_7*sin(theta4 - theta7))+ V4*V8*(G_4_8*cos(theta4- theta8) + B_4_8*sin(theta4 - theta8))+ V4*V9*(G_4_9*cos(theta4- theta9) + B_4_9*sin(theta4 - theta9)) + pl4_0"/>
+        <Eq fx="-V4^2*B_4_4+ V4*V1*(G_4_1*sin(theta4- theta1) - B_4_1*cos(theta4 - theta1))+ V4*V2*(G_4_2*sin(theta4- theta2) - B_4_2*cos(theta4 - theta2))+ V4*V3*(G_4_3*sin(theta4- theta3) - B_4_3*cos(theta4 - theta3))+ V4*V5*(G_4_5*sin(theta4- theta5) - B_4_5*cos(theta4 - theta5))+ V4*V6*(G_4_6*sin(theta4- theta6) - B_4_6*cos(theta4 - theta6))+ V4*V7*(G_4_7*sin(theta4- theta7) - B_4_7*cos(theta4 - theta7))+ V4*V8*(G_4_8*sin(theta4- theta8) - B_4_8*cos(theta4 - theta8))+ V4*V9*(G_4_9*sin(theta4- theta9) - B_4_9*cos(theta4 - theta9)) + ql4_0"/>
+        <Eq fx="V5^2*G_5_5+ V5*V1*(G_5_1*cos(theta5- theta1) + B_5_1*sin(theta5 - theta1))+ V5*V2*(G_5_2*cos(theta5- theta2) + B_5_2*sin(theta5 - theta2))+ V5*V3*(G_5_3*cos(theta5- theta3) + B_5_3*sin(theta5 - theta3))+ V5*V4*(G_5_4*cos(theta5- theta4) + B_5_4*sin(theta5 - theta4))+ V5*V6*(G_5_6*cos(theta5- theta6) + B_5_6*sin(theta5 - theta6))+ V5*V7*(G_5_7*cos(theta5- theta7) + B_5_7*sin(theta5 - theta7))+ V5*V8*(G_5_8*cos(theta5- theta8) + B_5_8*sin(theta5 - theta8))+ V5*V9*(G_5_9*cos(theta5- theta9) + B_5_9*sin(theta5 - theta9)) + pl5_0"/>
+        <Eq fx="-V5^2*B_5_5+ V5*V1*(G_5_1*sin(theta5- theta1) - B_5_1*cos(theta5 - theta1))+ V5*V2*(G_5_2*sin(theta5- theta2) - B_5_2*cos(theta5 - theta2))+ V5*V3*(G_5_3*sin(theta5- theta3) - B_5_3*cos(theta5 - theta3))+ V5*V4*(G_5_4*sin(theta5- theta4) - B_5_4*cos(theta5 - theta4))+ V5*V6*(G_5_6*sin(theta5- theta6) - B_5_6*cos(theta5 - theta6))+ V5*V7*(G_5_7*sin(theta5- theta7) - B_5_7*cos(theta5 - theta7))+ V5*V8*(G_5_8*sin(theta5- theta8) - B_5_8*cos(theta5 - theta8))+ V5*V9*(G_5_9*sin(theta5- theta9) - B_5_9*cos(theta5 - theta9)) + ql5_0"/>
+        <Eq fx="V6^2*G_6_6+ V6*V1*(G_6_1*cos(theta6- theta1) + B_6_1*sin(theta6 - theta1))+ V6*V2*(G_6_2*cos(theta6- theta2) + B_6_2*sin(theta6 - theta2))+ V6*V3*(G_6_3*cos(theta6- theta3) + B_6_3*sin(theta6 - theta3))+ V6*V4*(G_6_4*cos(theta6- theta4) + B_6_4*sin(theta6 - theta4))+ V6*V5*(G_6_5*cos(theta6- theta5) + B_6_5*sin(theta6 - theta5))+ V6*V7*(G_6_7*cos(theta6- theta7) + B_6_7*sin(theta6 - theta7))+ V6*V8*(G_6_8*cos(theta6- theta8) + B_6_8*sin(theta6 - theta8))+ V6*V9*(G_6_9*cos(theta6- theta9) + B_6_9*sin(theta6 - theta9)) + pl6_0"/>
+        <Eq fx="-V6^2*B_6_6+ V6*V1*(G_6_1*sin(theta6- theta1) - B_6_1*cos(theta6 - theta1))+ V6*V2*(G_6_2*sin(theta6- theta2) - B_6_2*cos(theta6 - theta2))+ V6*V3*(G_6_3*sin(theta6- theta3) - B_6_3*cos(theta6 - theta3))+ V6*V4*(G_6_4*sin(theta6- theta4) - B_6_4*cos(theta6 - theta4))+ V6*V5*(G_6_5*sin(theta6- theta5) - B_6_5*cos(theta6 - theta5))+ V6*V7*(G_6_7*sin(theta6- theta7) - B_6_7*cos(theta6 - theta7))+ V6*V8*(G_6_8*sin(theta6- theta8) - B_6_8*cos(theta6 - theta8))+ V6*V9*(G_6_9*sin(theta6- theta9) - B_6_9*cos(theta6 - theta9)) + ql6_0"/>
+        <Eq fx="V7^2*G_7_7+ V7*V1*(G_7_1*cos(theta7- theta1) + B_7_1*sin(theta7 - theta1))+ V7*V2*(G_7_2*cos(theta7- theta2) + B_7_2*sin(theta7 - theta2))+ V7*V3*(G_7_3*cos(theta7- theta3) + B_7_3*sin(theta7 - theta3))+ V7*V4*(G_7_4*cos(theta7- theta4) + B_7_4*sin(theta7 - theta4))+ V7*V5*(G_7_5*cos(theta7- theta5) + B_7_5*sin(theta7 - theta5))+ V7*V6*(G_7_6*cos(theta7- theta6) + B_7_6*sin(theta7 - theta6))+ V7*V8*(G_7_8*cos(theta7- theta8) + B_7_8*sin(theta7 - theta8))+ V7*V9*(G_7_9*cos(theta7- theta9) + B_7_9*sin(theta7 - theta9)) + pl7_0"/>
+        <Eq fx="-V7^2*B_7_7+ V7*V1*(G_7_1*sin(theta7- theta1) - B_7_1*cos(theta7 - theta1))+ V7*V2*(G_7_2*sin(theta7- theta2) - B_7_2*cos(theta7 - theta2))+ V7*V3*(G_7_3*sin(theta7- theta3) - B_7_3*cos(theta7 - theta3))+ V7*V4*(G_7_4*sin(theta7- theta4) - B_7_4*cos(theta7 - theta4))+ V7*V5*(G_7_5*sin(theta7- theta5) - B_7_5*cos(theta7 - theta5))+ V7*V6*(G_7_6*sin(theta7- theta6) - B_7_6*cos(theta7 - theta6))+ V7*V8*(G_7_8*sin(theta7- theta8) - B_7_8*cos(theta7 - theta8))+ V7*V9*(G_7_9*sin(theta7- theta9) - B_7_9*cos(theta7 - theta9)) + ql7_0"/>
+        <Eq fx="V8^2*G_8_8+ V8*V1*(G_8_1*cos(theta8- theta1) + B_8_1*sin(theta8 - theta1))+ V8*V2*(G_8_2*cos(theta8- theta2) + B_8_2*sin(theta8 - theta2))+ V8*V3*(G_8_3*cos(theta8- theta3) + B_8_3*sin(theta8 - theta3))+ V8*V4*(G_8_4*cos(theta8- theta4) + B_8_4*sin(theta8 - theta4))+ V8*V5*(G_8_5*cos(theta8- theta5) + B_8_5*sin(theta8 - theta5))+ V8*V6*(G_8_6*cos(theta8- theta6) + B_8_6*sin(theta8 - theta6))+ V8*V7*(G_8_7*cos(theta8- theta7) + B_8_7*sin(theta8 - theta7))+ V8*V9*(G_8_9*cos(theta8- theta9) + B_8_9*sin(theta8 - theta9)) + pl8_0"/>
+        <Eq fx="-V8^2*B_8_8+ V8*V1*(G_8_1*sin(theta8- theta1) - B_8_1*cos(theta8 - theta1))+ V8*V2*(G_8_2*sin(theta8- theta2) - B_8_2*cos(theta8 - theta2))+ V8*V3*(G_8_3*sin(theta8- theta3) - B_8_3*cos(theta8 - theta3))+ V8*V4*(G_8_4*sin(theta8- theta4) - B_8_4*cos(theta8 - theta4))+ V8*V5*(G_8_5*sin(theta8- theta5) - B_8_5*cos(theta8 - theta5))+ V8*V6*(G_8_6*sin(theta8- theta6) - B_8_6*cos(theta8 - theta6))+ V8*V7*(G_8_7*sin(theta8- theta7) - B_8_7*cos(theta8 - theta7))+ V8*V9*(G_8_9*sin(theta8- theta9) - B_8_9*cos(theta8 - theta9)) + ql8_0"/>
+        <Eq fx="V9^2*G_9_9+ V9*V1*(G_9_1*cos(theta9- theta1) + B_9_1*sin(theta9 - theta1))+ V9*V2*(G_9_2*cos(theta9- theta2) + B_9_2*sin(theta9 - theta2))+ V9*V3*(G_9_3*cos(theta9- theta3) + B_9_3*sin(theta9 - theta3))+ V9*V4*(G_9_4*cos(theta9- theta4) + B_9_4*sin(theta9 - theta4))+ V9*V5*(G_9_5*cos(theta9- theta5) + B_9_5*sin(theta9 - theta5))+ V9*V6*(G_9_6*cos(theta9- theta6) + B_9_6*sin(theta9 - theta6))+ V9*V7*(G_9_7*cos(theta9- theta7) + B_9_7*sin(theta9 - theta7))+ V9*V8*(G_9_8*cos(theta9- theta8) + B_9_8*sin(theta9 - theta8)) + pl9_0"/>
+        <Eq fx="-V9^2*B_9_9+ V9*V1*(G_9_1*sin(theta9- theta1) - B_9_1*cos(theta9 - theta1))+ V9*V2*(G_9_2*sin(theta9- theta2) - B_9_2*cos(theta9 - theta2))+ V9*V3*(G_9_3*sin(theta9- theta3) - B_9_3*cos(theta9 - theta3))+ V9*V4*(G_9_4*sin(theta9- theta4) - B_9_4*cos(theta9 - theta4))+ V9*V5*(G_9_5*sin(theta9- theta5) - B_9_5*cos(theta9 - theta5))+ V9*V6*(G_9_6*sin(theta9- theta6) - B_9_6*cos(theta9 - theta6))+ V9*V7*(G_9_7*sin(theta9- theta7) - B_9_7*cos(theta9 - theta7))+ V9*V8*(G_9_8*sin(theta9- theta8) - B_9_8*cos(theta9 - theta8)) + ql9_0"/>
+    </NLEqs>
+</Model>

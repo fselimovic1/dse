@@ -27,7 +27,7 @@ def ybus(ppc):
         Y[branch[i, 1].astype(int) - 1, branch[i, 0].astype(int) - 1] += tofrom[i]
 
     # Shunt admittances and susceptances
-    Y[bus[:,0].astype(int) - 1, bus[:,0].astype(int) - 1] += bus[:,4] + 1j * bus[:,5]
+    Y[bus[:,0].astype(int) - 1, bus[:,0].astype(int) - 1] += (bus[:,4] + 1j * bus[:,5])
     return Y
 
 

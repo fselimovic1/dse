@@ -7,7 +7,7 @@ def process_data(ppc):
 
     # process bus data
     bus = ppc["bus"]
-    bus[:, 2:5] /= ppc["baseMVA"];
+    bus[:, 2:6] /= ppc["baseMVA"];
     bus[:, 8] *= 2 * math.pi/360;
     ppc["bus"] = bus;
 

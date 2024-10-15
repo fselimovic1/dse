@@ -1,6 +1,7 @@
 import os
 import matplotlib.pyplot as plt
-from routines.time_domain.xml4DAE import xml4DAE
+from routines.time_domain.xml4DAE_CMNNE import xml4DAE_CMNNE
+from routines.time_domain import xml4DAE
 from acquire_data import acquire_data
 from process_data import process_data
 import pandas as pd
@@ -16,13 +17,14 @@ plotSimData = False;
 EPS = 1e-6
 ms = 1e-3
 
+isCMNNE = True;
 # Specify name of the prepared power system or type 'TBD' if you want to generate new power system XML file
 # ThreeBusDynamics_SG4
 powsys = "TBD";
 nb = 9;
 ng = 3;
 # Insert filename in the case of new XML file
-filename = "IEEE9_LoadOnTest";
+filename = "IEEE39_LoadOnTest";
 
 # Simuluation SETTINGS
 settings = { "time": 3 };
@@ -41,14 +43,17 @@ settings["debug"] = False;
 # 2 Bus fault: { "etype": "bbfault", "noBus": 4 }
 # 3 Line fault: {"etype": "lfault", "noLine": 25 } -> to be updated
 # 4 Line removal: {"etype": "lrem", "noLine": 25 }
-settings["event"] = { "etype": "loadOn", "power": 2 }
-settings["etime_s"] = 1.4
-settings["etime_e"] = 4
+settings["event"] = { "etype": "loadOn", "power": 5 }
+settings["etime_s"] = 1
+settings["etime_e"] = 6
 
 
 if powsys == "TBD":
    # Generate time - domain simulation configuration file (XML)
-    xml4DAE(settings, ppc)
+   if isCMNNE:
+        xml4DAE_CMNNE(settings, ppc)
+   else:
+        xml4DAE(settings, ppc)   
 else:
     settings["filename"] = powsys;
 
