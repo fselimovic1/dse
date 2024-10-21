@@ -1,33 +1,33 @@
 import os
 import matplotlib.pyplot as plt
 from routines.time_domain.xml4DAE_CMNNE import xml4DAE_CMNNE
-from routines.time_domain import xml4DAE
+from routines.time_domain.xml4DAE import xml4DAE
 from acquire_data import acquire_data
 from process_data import process_data
 import pandas as pd
 import numpy as np
 import json
 
-from power_systems import case39
-ppc = process_data(case39.case39())
+from power_systems import case3
+ppc = process_data(case3.case3())
 
-saveSimData = True;
+saveSimData = False;
 plotSimData = False;
 
 EPS = 1e-6
 ms = 1e-3
 
-isCMNNE = True;
+isCMNNE = False;
 # Specify name of the prepared power system or type 'TBD' if you want to generate new power system XML file
 # ThreeBusDynamics_SG4
 powsys = "TBD";
-nb = 9;
-ng = 3;
+nb = 14;
+ng = 5;
 # Insert filename in the case of new XML file
-filename = "IEEE39_LoadOnTest";
+filename = "ACIEEE3__Dynamics";
 
 # Simuluation SETTINGS
-settings = { "time": 3 };
+settings = { "time": 5 };
 settings["tstep"] = 1 * ms;
 settings["nimethod"] = "Trapezoidal";
 settings["v2plot"] = "w";

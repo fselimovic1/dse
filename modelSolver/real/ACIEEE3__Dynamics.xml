@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model type="DAE" domain="real" method="Trapezoidal" eps="0.0001" name="ACIEEE3__Dynamics">
+    <Vars out="true">
+        <Var name="V1" val="1"/>
+        <Var name="theta1" val="0"/>
+        <Var name="V2" val="1"/>
+        <Var name="theta2" val="0"/>
+        <Var name="V3" val="1"/>
+        <Var name="theta3" val="0"/>
+        <Var name="delta1" val="0"/>
+        <Var name="w1" val="1"/>
+        <Var name="id1" val="0"/>
+        <Var name="iq1" val="1"/>
+        <Var name="delta2" val="0"/>
+        <Var name="w2" val="1"/>
+        <Var name="id2" val="0"/>
+        <Var name="iq2" val="1"/>
+    </Vars>
+    <Params>
+        <Param name="G1_1" val="8.0"/>
+        <Param name="B1_1" val="-24.0"/>
+        <Param name="G1_2" val="0.0"/>
+        <Param name="B1_2" val="0.0"/>
+        <Param name="G1_3" val="-8.0"/>
+        <Param name="B1_3" val="24.0"/>
+        <Param name="G2_1" val="0.0"/>
+        <Param name="B2_1" val="0.0"/>
+        <Param name="G2_2" val="2.0"/>
+        <Param name="B2_2" val="-6.0"/>
+        <Param name="G2_3" val="-2.0"/>
+        <Param name="B2_3" val="6.0"/>
+        <Param name="G3_1" val="-8.0"/>
+        <Param name="B3_1" val="24.0"/>
+        <Param name="G3_2" val="-2.0"/>
+        <Param name="B3_2" val="6.0"/>
+        <Param name="G3_3" val="10.0"/>
+        <Param name="B3_3" val="-30.0"/>
+        <Param name="pl1" val="0.0"/>
+        <Param name="ql1" val="0.0"/>
+        <Param name="pl2" val="0.0"/>
+        <Param name="ql2" val="0.0"/>
+        <Param name="pl3" val="0.5556"/>
+        <Param name="ql3" val="0.2778"/>
+        <Param name="wn" val="376.99111843077515"/>
+        <Param name="ws" val="1"/>
+        <Param name="pi" val="3.141592653589793"/>
+        <Param name="w1_0" val="ws"/>
+        <Param name="ra1" val="0.002"/>
+        <Param name="x1d1" val="0.911"/>
+        <Param name="M1" val="13.3617"/>
+        <Param name="D1" val="1.0"/>
+        <Param name="Pm1_0" val="1" out="true"/>
+        <Param name="E1" val="1" out="true"/>
+        <Param name="w2_0" val="ws"/>
+        <Param name="ra2" val="0.002"/>
+        <Param name="x1d2" val="0.911"/>
+        <Param name="M2" val="20.3617"/>
+        <Param name="D2" val="1.0"/>
+        <Param name="Pm2_0" val="1" out="true"/>
+        <Param name="E2" val="1" out="true"/>
+    </Params>
+    <Init>
+        <Model type="NR" domain="real" eps="1e-06" name="PF Subproblem for DAE">
+            <Vars>
+                <Var name="V1" val="1"/>
+                <Var name="theta1" val="0"/>
+                <Var name="V2" val="1"/>
+                <Var name="theta2" val="0"/>
+                <Var name="V3" val="1"/>
+                <Var name="theta3" val="0"/>
+            </Vars>
+            <Params>
+                <Param name="p1_0" val="0.3386"/>
+                <Param name="q1_0" val="-0.0"/>
+                <Param name="p2_0" val="0.2222"/>
+                <Param name="q2_0" val="-0.0"/>
+                <Param name="p3_0" val="-0.5556"/>
+                <Param name="q3_0" val="-0.2778"/>
+                <Param name="V1_0" val="1.0"/>
+                <Param name="theta1_0" val="0.0"/>
+                <Param name="V2_0" val="0.99"/>
+                <Param name="theta2_0" val="0.0269"/>
+                <Param name="V3_0" val="0.9837"/>
+                <Param name="theta3_0" val="-0.0088"/>
+                <Param name="I1r" val="0"/>
+                <Param name="I1im" val="0"/>
+                <Param name="I2r" val="0"/>
+                <Param name="I2im" val="0"/>
+                <Param name="I3r" val="0"/>
+                <Param name="I3im" val="0"/>
+                <Param name="E1r" val="0"/>
+                <Param name="E1im" val="0"/>
+                <Param name="delta1_0" val="0"/>
+                <Param name="E2r" val="0"/>
+                <Param name="E2im" val="0"/>
+                <Param name="delta2_0" val="0"/>
+            </Params>
+            <NLEqs>
+                <Eq fx="V1 - V1_0 = 0"/>
+                <Eq fx="theta1 - theta1_0 = 0"/>
+                <Eq fx="V2 - V2_0 = 0"/>
+                <Eq fx="V2^2*G2_2+ V2*V3*(G2_3*cos(theta2- theta3) + B2_3*sin(theta2 - theta3)) - p2_0"/>
+                <Eq fx="V3^2*G3_3+ V3*V1*(G3_1*cos(theta3- theta1) + B3_1*sin(theta3 - theta1))+ V3*V2*(G3_2*cos(theta3- theta2) + B3_2*sin(theta3 - theta2)) - p3_0"/>
+                <Eq fx="-V3^2*B3_3+ V3*V1*(G3_1*sin(theta3- theta1) - B3_1*cos(theta3 - theta1))+ V3*V2*(G3_2*sin(theta3- theta2) - B3_2*cos(theta3 - theta2)) - q3_0"/>
+            </NLEqs>
+            <PostProc>
+                <Eq fx="base.V1 = V1"/>
+                <Eq fx="base.theta1 = theta1"/>
+                <Eq fx="base.V2 = V2"/>
+                <Eq fx="base.theta2 = theta2"/>
+                <Eq fx="base.V3 = V3"/>
+                <Eq fx="base.theta3 = theta3"/>
+                <Eq fx="I1r = + V1 * (G1_1*cos(theta1) - B1_1*sin(theta1))+ V2 * (G1_2*cos(theta2) - B1_2*sin(theta2))+ V3 * (G1_3*cos(theta3) - B1_3*sin(theta3))"/>
+                <Eq fx="I1im = + V1 * (G1_1*sin(theta1) + B1_1*cos(theta1))+ V2 * (G1_2*sin(theta2) + B1_2*cos(theta2))+ V3 * (G1_3*sin(theta3) + B1_3*cos(theta3))"/>
+                <Eq fx="I2r = + V1 * (G2_1*cos(theta1) - B2_1*sin(theta1))+ V2 * (G2_2*cos(theta2) - B2_2*sin(theta2))+ V3 * (G2_3*cos(theta3) - B2_3*sin(theta3))"/>
+                <Eq fx="I2im = + V1 * (G2_1*sin(theta1) + B2_1*cos(theta1))+ V2 * (G2_2*sin(theta2) + B2_2*cos(theta2))+ V3 * (G2_3*sin(theta3) + B2_3*cos(theta3))"/>
+                <Eq fx="I3r = + V1 * (G3_1*cos(theta1) - B3_1*sin(theta1))+ V2 * (G3_2*cos(theta2) - B3_2*sin(theta2))+ V3 * (G3_3*cos(theta3) - B3_3*sin(theta3))"/>
+                <Eq fx="I3im = + V1 * (G3_1*sin(theta1) + B3_1*cos(theta1))+ V2 * (G3_2*sin(theta2) + B3_2*cos(theta2))+ V3 * (G3_3*sin(theta3) + B3_3*cos(theta3))"/>
+                <Eq fx="base.w1 = ws"/>
+                <Eq fx="E1r = V1 * cos(theta1) + ra1* I1r - x1d1* I1im"/>
+                <Eq fx="E1im = V1 * sin(theta1) + ra1* I1im + x1d1* I1r"/>
+                <Eq fx="base.E1 = sqrt(E1r^2 + E1im^2)"/>
+                <Eq fx="delta1_0 = atg(E1im/E1r)"/>
+                <Eq fx="base.delta1 = delta1_0"/>
+                <Eq fx="base.id1 = I1r * cos(pi/2 - delta1_0) - I1im * sin(pi/2 - delta1_0)"/>
+                <Eq fx="base.iq1 = I1r * sin(pi/2 - delta1_0) + I1im * cos(pi/2 - delta1_0)"/>
+                <Eq fx="base.Pm1_0 = E1 * (I1r * sin(pi/2 - delta1_0) + I1im * cos(pi/2 - delta1_0))"/>
+                <Eq fx="base.w2 = ws"/>
+                <Eq fx="E2r = V2 * cos(theta2) + ra2* I2r - x1d2* I2im"/>
+                <Eq fx="E2im = V2 * sin(theta2) + ra2* I2im + x1d2* I2r"/>
+                <Eq fx="base.E2 = sqrt(E2r^2 + E2im^2)"/>
+                <Eq fx="delta2_0 = atg(E2im/E2r)"/>
+                <Eq fx="base.delta2 = delta2_0"/>
+                <Eq fx="base.id2 = I2r * cos(pi/2 - delta2_0) - I2im * sin(pi/2 - delta2_0)"/>
+                <Eq fx="base.iq2 = I2r * sin(pi/2 - delta2_0) + I2im * cos(pi/2 - delta2_0)"/>
+                <Eq fx="base.Pm2_0 = E2 * (I2r * sin(pi/2 - delta2_0) + I2im * cos(pi/2 - delta2_0))"/>
+            </PostProc>
+        </Model>
+    </Init>
+    <ODEqs>
+        <Eq fx="delta1' = wn * (w1 - ws)"/>
+        <Eq fx="w1' = (1/M1) * (Pm1_0 -(E1 * iq1) - D1* (w1 - ws))"/>
+        <Eq fx="delta2' = wn * (w2 - ws)"/>
+        <Eq fx="w2' = (1/M2) * (Pm2_0 -(E2 * iq2) - D2* (w2 - ws))"/>
+    </ODEqs>
+    <NLEqs>
+        <Eq fx="V3^2*G3_3+ V3*V1*(G3_1*cos(theta3- theta1) + B3_1*sin(theta3 - theta1))+ V3*V2*(G3_2*cos(theta3- theta2) + B3_2*sin(theta3 - theta2)) + pl3"/>
+        <Eq fx="-V3^2*B3_3+ V3*V1*(G3_1*sin(theta3- theta1) - B3_1*cos(theta3 - theta1))+ V3*V2*(G3_2*sin(theta3- theta2) - B3_2*cos(theta3 - theta2)) + ql3"/>
+        <Eq fx="V1*cos(theta1) - E1 * cos(delta1) - ra1*iq1*cos(delta1) - ra1*id1*sin(delta1) + x1d1*iq1*sin(delta1) - x1d1*id1*cos(delta1) = 0"/>
+        <Eq fx="V1*sin(theta1) - E1 * sin(delta1) - ra1*iq1*sin(delta1) + ra1*id1*cos(delta1) - x1d1*iq1*cos(delta1) - x1d1*id1*sin(delta1) = 0"/>
+        <Eq fx="V1^2*G1_1+ V1*V3*(G1_3*cos(theta1- theta3) + B1_3*sin(theta1 - theta3)) = V1 * (iq1 * cos(theta1 - delta1) - id1 * sin(theta1 - delta1)) - pl1"/>
+        <Eq fx="-V1^2*B1_1+ V1*V3*(G1_3*sin(theta1- theta3) - B1_3*cos(theta1 - theta3)) = V1 * (id1 * cos(theta1 - delta1) + iq1 * sin(theta1 - delta1))- ql1"/>
+        <Eq fx="V2*cos(theta2) - E2 * cos(delta2) - ra2*iq2*cos(delta2) - ra2*id2*sin(delta2) + x1d2*iq2*sin(delta2) - x1d2*id2*cos(delta2) = 0"/>
+        <Eq fx="V2*sin(theta2) - E2 * sin(delta2) - ra2*iq2*sin(delta2) + ra2*id2*cos(delta2) - x1d2*iq2*cos(delta2) - x1d2*id2*sin(delta2) = 0"/>
+        <Eq fx="V2^2*G2_2+ V2*V3*(G2_3*cos(theta2- theta3) + B2_3*sin(theta2 - theta3)) = V2 * (iq2 * cos(theta2 - delta2) - id2 * sin(theta2 - delta2)) - pl2"/>
+        <Eq fx="-V2^2*B2_2+ V2*V3*(G2_3*sin(theta2- theta3) - B2_3*cos(theta2 - theta3)) = V2 * (id2 * cos(theta2 - delta2) + iq2 * sin(theta2 - delta2))- ql2"/>
+    </NLEqs>
+</Model>

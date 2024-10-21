@@ -44,14 +44,14 @@
         <Param name="wn" val="2*PI*fn"/>   
 
         <!-- Admittance matrix -->
-         <!-- The first row -->
+        <!-- The first row -->
         <Param name="G11" val="8"/>
         <Param name="G12" val="0"/>
         <Param name="G13" val="-8"/>
 		<Param name="B11" val="-24"/>
         <Param name="B12" val="0"/>
         <Param name="B13" val="24"/>
-         <!-- The second row -->
+        <!-- The second row -->
         <Param name="G21" val="0"/>
         <Param name="G22" val="2"/>
         <Param name="G23" val="-2"/>

@@ -259,23 +259,23 @@
 	<!-- Main problem (DAE), algebraic equations-->
 	<NLEqs>
 		<!-- Power injection equations (DAE)-->
-		<Eq fx="V1^2*G11+V1*V2*(G12*cos(theta1-theta2)+B12*sin(theta1-theta2))+V1*V3*(G13*cos(theta1-theta3)+B13*sin(theta1-theta3))-pg1"/>
-		<Eq fx="-V1^2*B11+V1*V2*(G12*sin(theta1-theta2)-B12*cos(theta1-theta2))+V1*V3*(G13*sin(theta1-theta3)-B13*cos(theta1-theta3))-qg1"/>
-		<Eq fx="V2^2*G22+V2*V1*(G21*cos(theta2-theta1)+B21*sin(theta2-theta1))+V2*V3*(G23*cos(theta2-theta3)+B23*sin(theta2-theta3))-pg2"/>
-		<Eq fx="-V2^2*B22+V1*V2*(G21*sin(theta2-theta1)-B21*cos(theta2-theta1))+V2*V3*(G23*sin(theta2-theta3)-B23*cos(theta2-theta3))-qg2"/>
-		<Eq fx="V3^2*G33+V3*V1*(G31*cos(theta3-theta1)+B31*sin(theta3-theta1))+V2*V3*(G32*cos(theta3-theta2)+B32*sin(theta3-theta2))-Pl3"/>
-		<Eq fx="-V3^2*B33+V1*V3*(G31*sin(theta3-theta1)-B31*cos(theta3-theta1))+V2*V3*(G32*sin(theta3-theta2)-B32*cos(theta3-theta2))-Ql3"/>
+		<Eq fx="V1^2*G11+V1*V2*(G12*cos(theta1-theta2)+B12*sin(theta1-theta2))+V1*V3*(G13*cos(theta1-theta3)+B13*sin(theta1-theta3)) - pg1"/>
+		<Eq fx="-V1^2*B11+V1*V2*(G12*sin(theta1-theta2)-B12*cos(theta1-theta2))+V1*V3*(G13*sin(theta1-theta3)-B13*cos(theta1-theta3)) - qg1"/>
+		<Eq fx="V2^2*G22+V2*V1*(G21*cos(theta2-theta1)+B21*sin(theta2-theta1))+V2*V3*(G23*cos(theta2-theta3)+B23*sin(theta2-theta3)) - pg2"/>
+		<Eq fx="-V2^2*B22+V1*V2*(G21*sin(theta2-theta1)-B21*cos(theta2-theta1))+V2*V3*(G23*sin(theta2-theta3)-B23*cos(theta2-theta3)) - qg2"/>
+		<Eq fx="V3^2*G33+V3*V1*(G31*cos(theta3-theta1)+B31*sin(theta3-theta1))+V2*V3*(G32*cos(theta3-theta2)+B32*sin(theta3-theta2)) - Pl3"/>
+		<Eq fx="-V3^2*B33+V1*V3*(G31*sin(theta3-theta1)-B31*cos(theta3-theta1))+V2*V3*(G32*sin(theta3-theta2)-B32*cos(theta3-theta2)) - Ql3"/>
 		<!-- Field voltage (DAE)-->
-		<Eq fx="vf1=vf1_0"/>
-		<Eq fx="vf2=vf2_0"/>	
+		<Eq fx="vf1 = vf1_0"/>
+		<Eq fx="vf2 = vf2_0"/>	
 		<!-- Mechanical power (DAE)-->
-		<Eq fx="pm1=pm1_0"/>
-		<Eq fx="pm2=pm2_0"/>
+		<Eq fx="pm1 = pm1_0"/>
+		<Eq fx="pm2 = pm2_0"/>
 		<!-- Active and reactive generator power outputs (DAE)-->
-		<Eq fx="pg1 = V1*sin(delta1-theta1)*(-V1*(c1*sin(delta1-theta1) + c3*cos(delta1-theta1))+c3*vf1)+V1*cos(delta1-theta1)*(V1*(-c1*cos(delta1-theta1) + c2*sin(delta1-theta1))+c1*vf1)"/>
-		<Eq fx="pg2 = V2*sin(delta2-theta2)*(-V2*(c1*sin(delta2-theta2) + c2*cos(delta2-theta2))+c2*vf2)+V2*cos(delta2-theta2)*(V2*(-c1*cos(delta2-theta2) + c2*sin(delta2-theta2))+c1*vf2)"/>
-		<Eq fx="qg1 = V1*cos(delta1-theta1)*(-V1*(c1*sin(delta1-theta1) + c2*cos(delta1-theta1))+c2*vf1)-V1*sin(delta1-theta1)*(V1*(-c1*cos(delta1-theta1) + c2*sin(delta1-theta1))+c1*vf1)"/>
-		<Eq fx="qg2 = V2*cos(delta2-theta2)*(-V2*(c1*sin(delta2-theta2) + c2*cos(delta2-theta2))+c2*vf2)-V2*sin(delta2-theta2)*(V2*(-c1*cos(delta2-theta2) + c2*sin(delta2-theta2))+c1*vf2)"/>
+		<Eq fx="pg1 = V1 * sin(delta1-theta1) * (-V1*(c1*sin(delta1-theta1) + c3*cos(delta1-theta1))+c3*vf1)+V1*cos(delta1-theta1)*(V1*(-c1*cos(delta1-theta1) + c2*sin(delta1-theta1))+c1*vf1)"/>
+		<Eq fx="pg2 = V2 * sin(delta2-theta2) * (-V2*(c1*sin(delta2-theta2) + c2*cos(delta2-theta2))+c2*vf2)+V2*cos(delta2-theta2)*(V2*(-c1*cos(delta2-theta2) + c2*sin(delta2-theta2))+c1*vf2)"/>
+		<Eq fx="qg1 = V1 * cos(delta1-theta1) * (-V1*(c1*sin(delta1-theta1) + c2*cos(delta1-theta1))+c2*vf1)-V1*sin(delta1-theta1)*(V1*(-c1*cos(delta1-theta1) + c2*sin(delta1-theta1))+c1*vf1)"/>
+		<Eq fx="qg2 = V2 * cos(delta2-theta2) * (-V2*(c1*sin(delta2-theta2) + c2*cos(delta2-theta2))+c2*vf2)-V2*sin(delta2-theta2)*(V2*(-c1*cos(delta2-theta2) + c2*sin(delta2-theta2))+c1*vf2)"/>
 	</NLEqs>
 	<PostProc>
 		<!-- <Eq fx="I1r = G11*V1*cos(theta1) - B11*V1*sin(theta1) + G13*V3*cos(theta3) - B13*V3*sin(theta3)"/>
@@ -294,7 +294,6 @@
 		<Eq cond="t > 1">
 			<Then fx="Pl3 = -0.6"/>
 		</Eq>
-
 		<Eq cond="t > 50">
 			<Then fx="Pl3 = -0.5556"/>
 		</Eq>

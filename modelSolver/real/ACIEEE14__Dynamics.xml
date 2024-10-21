@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model type="DAE" domain="real" method="Trapezoidal" eps="0.0001" name="ACIEEE14__Dynamics">
+    <Vars out="true">
+        <Var name="V1" val="1"/>
+        <Var name="theta1" val="0"/>
+        <Var name="V2" val="1"/>
+        <Var name="theta2" val="0"/>
+        <Var name="V3" val="1"/>
+        <Var name="theta3" val="0"/>
+        <Var name="V4" val="1"/>
+        <Var name="theta4" val="0"/>
+        <Var name="V5" val="1"/>
+        <Var name="theta5" val="0"/>
+        <Var name="V6" val="1"/>
+        <Var name="theta6" val="0"/>
+        <Var name="V7" val="1"/>
+        <Var name="theta7" val="0"/>
+        <Var name="V8" val="1"/>
+        <Var name="theta8" val="0"/>
+        <Var name="V9" val="1"/>
+        <Var name="theta9" val="0"/>
+        <Var name="V10" val="1"/>
+        <Var name="theta10" val="0"/>
+        <Var name="V11" val="1"/>
+        <Var name="theta11" val="0"/>
+        <Var name="V12" val="1"/>
+        <Var name="theta12" val="0"/>
+        <Var name="V13" val="1"/>
+        <Var name="theta13" val="0"/>
+        <Var name="V14" val="1"/>
+        <Var name="theta14" val="0"/>
+        <Var name="delta1" val="0"/>
+        <Var name="w1" val="1"/>
+        <Var name="id1" val="0"/>
+        <Var name="iq1" val="1"/>
+        <Var name="delta2" val="0"/>
+        <Var name="w2" val="1"/>
+        <Var name="id2" val="0"/>
+        <Var name="iq2" val="1"/>
+        <Var name="delta3" val="0"/>
+        <Var name="w3" val="1"/>
+        <Var name="id3" val="0"/>
+        <Var name="iq3" val="1"/>
+        <Var name="delta6" val="0"/>
+        <Var name="w6" val="1"/>
+        <Var name="id6" val="0"/>
+        <Var name="iq6" val="1"/>
+        <Var name="delta8" val="0"/>
+        <Var name="w8" val="1"/>
+        <Var name="id8" val="0"/>
+        <Var name="iq8" val="1"/>
+    </Vars>
+    <Params>
+        <Param name="G1_1" val="6.025029055768224"/>
+        <Param name="B1_1" val="-19.447070205514382"/>
+        <Param name="G1_2" val="-4.999131600798035"/>
+        <Param name="B1_2" val="15.263086523179553"/>
+        <Param name="G1_3" val="0.0"/>
+        <Param name="B1_3" val="0.0"/>
+        <Param name="G1_4" val="0.0"/>
+        <Param name="B1_4" val="0.0"/>
+        <Param name="G1_5" val="-1.025897454970189"/>
+        <Param name="B1_5" val="4.234983682334831"/>
+        <Param name="G1_6" val="0.0"/>
+        <Param name="B1_6" val="0.0"/>
+        <Param name="G1_7" val="0.0"/>
+        <Param name="B1_7" val="0.0"/>
+        <Param name="G1_8" val="0.0"/>
+        <Param name="B1_8" val="0.0"/>
+        <Param name="G1_9" val="0.0"/>
+        <Param name="B1_9" val="0.0"/>
+        <Param name="G1_10" val="0.0"/>
+        <Param name="B1_10" val="0.0"/>
+        <Param name="G1_11" val="0.0"/>
+        <Param name="B1_11" val="0.0"/>
+        <Param name="G1_12" val="0.0"/>
+        <Param name="B1_12" val="0.0"/>
+        <Param name="G1_13" val="0.0"/>
+        <Param name="B1_13" val="0.0"/>
+        <Param name="G1_14" val="0.0"/>
+        <Param name="B1_14" val="0.0"/>
+        <Param name="G2_1" val="-4.999131600798035"/>
+        <Param name="B2_1" val="15.263086523179553"/>
+        <Param name="G2_2" val="9.521323610814777"/>
+        <Param name="B2_2" val="-30.272115398779068"/>
+        <Param name="G2_3" val="-1.1350191923073958"/>
+        <Param name="B2_3" val="4.781863151757718"/>
+        <Param name="G2_4" val="-1.686033150614943"/>
+        <Param name="B2_4" val="5.115838325872083"/>
+        <Param name="G2_5" val="-1.7011396670944048"/>
+        <Param name="B2_5" val="5.193927397969713"/>
+        <Param name="G2_6" val="0.0"/>
+        <Param name="B2_6" val="0.0"/>
+        <Param name="G2_7" val="0.0"/>
+        <Param name="B2_7" val="0.0"/>
+        <Param name="G2_8" val="0.0"/>
+        <Param name="B2_8" val="0.0"/>
+        <Param name="G2_9" val="0.0"/>
+        <Param name="B2_9" val="0.0"/>
+        <Param name="G2_10" val="0.0"/>
+        <Param name="B2_10" val="0.0"/>
+        <Param name="G2_11" val="0.0"/>
+        <Param name="B2_11" val="0.0"/>
+        <Param name="G2_12" val="0.0"/>
+        <Param name="B2_12" val="0.0"/>
+        <Param name="G2_13" val="0.0"/>
+        <Param name="B2_13" val="0.0"/>
+        <Param name="G2_14" val="0.0"/>
+        <Param name="B2_14" val="0.0"/>
+        <Param name="G3_1" val="0.0"/>
+        <Param name="B3_1" val="0.0"/>
+        <Param name="G3_2" val="-1.1350191923073958"/>
+        <Param name="B3_2" val="4.781863151757718"/>
+        <Param name="G3_3" val="3.1209949022329564"/>
+        <Param name="B3_3" val="-9.82238012935164"/>
+        <Param name="G3_4" val="-1.9859757099255606"/>
+        <Param name="B3_4" val="5.0688169775939205"/>
+        <Param name="G3_5" val="0.0"/>
+        <Param name="B3_5" val="0.0"/>
+        <Param name="G3_6" val="0.0"/>
+        <Param name="B3_6" val="0.0"/>
+        <Param name="G3_7" val="0.0"/>
+        <Param name="B3_7" val="0.0"/>
+        <Param name="G3_8" val="0.0"/>
+        <Param name="B3_8" val="0.0"/>
+        <Param name="G3_9" val="0.0"/>
+        <Param name="B3_9" val="0.0"/>
+        <Param name="G3_10" val="0.0"/>
+        <Param name="B3_10" val="0.0"/>
+        <Param name="G3_11" val="0.0"/>
+        <Param name="B3_11" val="0.0"/>
+        <Param name="G3_12" val="0.0"/>
+        <Param name="B3_12" val="0.0"/>
+        <Param name="G3_13" val="0.0"/>
+        <Param name="B3_13" val="0.0"/>
+        <Param name="G3_14" val="0.0"/>
+        <Param name="B3_14" val="0.0"/>
+        <Param name="G4_1" val="0.0"/>
+        <Param name="B4_1" val="0.0"/>
+        <Param name="G4_2" val="-1.686033150614943"/>
+        <Param name="B4_2" val="5.115838325872083"/>
+        <Param name="G4_3" val="-1.9859757099255606"/>
+        <Param name="B4_3" val="5.0688169775939205"/>
+        <Param name="G4_4" val="10.512989522036175"/>
+        <Param name="B4_4" val="-38.654171207607796"/>
+        <Param name="G4_5" val="-6.840980661495672"/>
+        <Param name="B4_5" val="21.578553981691588"/>
+        <Param name="G4_6" val="0.0"/>
+        <Param name="B4_6" val="0.0"/>
+        <Param name="G4_7" val="0.0"/>
+        <Param name="B4_7" val="4.889512660317341"/>
+        <Param name="G4_8" val="0.0"/>
+        <Param name="B4_8" val="0.0"/>
+        <Param name="G4_9" val="0.0"/>
+        <Param name="B4_9" val="1.8554995578159006"/>
+        <Param name="G4_10" val="0.0"/>
+        <Param name="B4_10" val="0.0"/>
+        <Param name="G4_11" val="0.0"/>
+        <Param name="B4_11" val="0.0"/>
+        <Param name="G4_12" val="0.0"/>
+        <Param name="B4_12" val="0.0"/>
+        <Param name="G4_13" val="0.0"/>
+        <Param name="B4_13" val="0.0"/>
+        <Param name="G4_14" val="0.0"/>
+        <Param name="B4_14" val="0.0"/>
+        <Param name="G5_1" val="-1.025897454970189"/>
+        <Param name="B5_1" val="4.234983682334831"/>
+        <Param name="G5_2" val="-1.7011396670944048"/>
+        <Param name="B5_2" val="5.193927397969713"/>
+        <Param name="G5_3" val="0.0"/>
+        <Param name="B5_3" val="0.0"/>
+        <Param name="G5_4" val="-6.840980661495672"/>
+        <Param name="B5_4" val="21.578553981691588"/>
+        <Param name="G5_5" val="9.568017783560265"/>
+        <Param name="B5_5" val="-35.533639456044824"/>
+        <Param name="G5_6" val="0.0"/>
+        <Param name="B5_6" val="4.257445335253384"/>
+        <Param name="G5_7" val="0.0"/>
+        <Param name="B5_7" val="0.0"/>
+        <Param name="G5_8" val="0.0"/>
+        <Param name="B5_8" val="0.0"/>
+        <Param name="G5_9" val="0.0"/>
+        <Param name="B5_9" val="0.0"/>
+        <Param name="G5_10" val="0.0"/>
+        <Param name="B5_10" val="0.0"/>
+        <Param name="G5_11" val="0.0"/>
+        <Param name="B5_11" val="0.0"/>
+        <Param name="G5_12" val="0.0"/>
+        <Param name="B5_12" val="0.0"/>
+        <Param name="G5_13" val="0.0"/>
+        <Param name="B5_13" val="0.0"/>
+        <Param name="G5_14" val="0.0"/>
+        <Param name="B5_14" val="0.0"/>
+        <Param name="G6_1" val="0.0"/>
+        <Param name="B6_1" val="0.0"/>
+        <Param name="G6_2" val="0.0"/>
+        <Param name="B6_2" val="0.0"/>
+        <Param name="G6_3" val="0.0"/>
+        <Param name="B6_3" val="0.0"/>
+        <Param name="G6_4" val="0.0"/>
+        <Param name="B6_4" val="0.0"/>
+        <Param name="G6_5" val="0.0"/>
+        <Param name="B6_5" val="4.257445335253384"/>
+        <Param name="G6_6" val="6.579923407466222"/>
+        <Param name="B6_6" val="-17.34073280991911"/>
+        <Param name="G6_7" val="0.0"/>
+        <Param name="B6_7" val="0.0"/>
+        <Param name="G6_8" val="0.0"/>
+        <Param name="B6_8" val="0.0"/>
+        <Param name="G6_9" val="0.0"/>
+        <Param name="B6_9" val="0.0"/>
+        <Param name="G6_10" val="0.0"/>
+        <Param name="B6_10" val="0.0"/>
+        <Param name="G6_11" val="-1.9550285631772604"/>
+        <Param name="B6_11" val="4.0940743442404415"/>
+        <Param name="G6_12" val="-1.525967440450974"/>
+        <Param name="B6_12" val="3.1759639650294003"/>
+        <Param name="G6_13" val="-3.0989274038379877"/>
+        <Param name="B6_13" val="6.102755448193116"/>
+        <Param name="G6_14" val="0.0"/>
+        <Param name="B6_14" val="0.0"/>
+        <Param name="G7_1" val="0.0"/>
+        <Param name="B7_1" val="0.0"/>
+        <Param name="G7_2" val="0.0"/>
+        <Param name="B7_2" val="0.0"/>
+        <Param name="G7_3" val="0.0"/>
+        <Param name="B7_3" val="0.0"/>
+        <Param name="G7_4" val="0.0"/>
+        <Param name="B7_4" val="4.889512660317341"/>
+        <Param name="G7_5" val="0.0"/>
+        <Param name="B7_5" val="0.0"/>
+        <Param name="G7_6" val="0.0"/>
+        <Param name="B7_6" val="0.0"/>
+        <Param name="G7_7" val="0.0"/>
+        <Param name="B7_7" val="-19.549005948264654"/>
+        <Param name="G7_8" val="0.0"/>
+        <Param name="B7_8" val="5.676979846721544"/>
+        <Param name="G7_9" val="0.0"/>
+        <Param name="B7_9" val="9.09008271975275"/>
+        <Param name="G7_10" val="0.0"/>
+        <Param name="B7_10" val="0.0"/>
+        <Param name="G7_11" val="0.0"/>
+        <Param name="B7_11" val="0.0"/>
+        <Param name="G7_12" val="0.0"/>
+        <Param name="B7_12" val="0.0"/>
+        <Param name="G7_13" val="0.0"/>
+        <Param name="B7_13" val="0.0"/>
+        <Param name="G7_14" val="0.0"/>
+        <Param name="B7_14" val="0.0"/>
+        <Param name="G8_1" val="0.0"/>
+        <Param name="B8_1" val="0.0"/>
+        <Param name="G8_2" val="0.0"/>
+        <Param name="B8_2" val="0.0"/>
+        <Param name="G8_3" val="0.0"/>
+        <Param name="B8_3" val="0.0"/>
+        <Param name="G8_4" val="0.0"/>
+        <Param name="B8_4" val="0.0"/>
+        <Param name="G8_5" val="0.0"/>
+        <Param name="B8_5" val="0.0"/>
+        <Param name="G8_6" val="0.0"/>
+        <Param name="B8_6" val="0.0"/>
+        <Param name="G8_7" val="0.0"/>
+        <Param name="B8_7" val="5.676979846721544"/>
+        <Param name="G8_8" val="0.0"/>
+        <Param name="B8_8" val="-5.676979846721544"/>
+        <Param name="G8_9" val="0.0"/>
+        <Param name="B8_9" val="0.0"/>
+        <Param name="G8_10" val="0.0"/>
+        <Param name="B8_10" val="0.0"/>
+        <Param name="G8_11" val="0.0"/>
+        <Param name="B8_11" val="0.0"/>
+        <Param name="G8_12" val="0.0"/>
+        <Param name="B8_12" val="0.0"/>
+        <Param name="G8_13" val="0.0"/>
+        <Param name="B8_13" val="0.0"/>
+        <Param name="G8_14" val="0.0"/>
+        <Param name="B8_14" val="0.0"/>
+        <Param name="G9_1" val="0.0"/>
+        <Param name="B9_1" val="0.0"/>
+        <Param name="G9_2" val="0.0"/>
+        <Param name="B9_2" val="0.0"/>
+        <Param name="G9_3" val="0.0"/>
+        <Param name="B9_3" val="0.0"/>
+        <Param name="G9_4" val="0.0"/>
+        <Param name="B9_4" val="1.8554995578159006"/>
+        <Param name="G9_5" val="0.0"/>
+        <Param name="B9_5" val="0.0"/>
+        <Param name="G9_6" val="0.0"/>
+        <Param name="B9_6" val="0.0"/>
+        <Param name="G9_7" val="0.0"/>
+        <Param name="B9_7" val="9.09008271975275"/>
+        <Param name="G9_8" val="0.0"/>
+        <Param name="B9_8" val="0.0"/>
+        <Param name="G9_9" val="5.326055039467359"/>
+        <Param name="B9_9" val="-24.092506375267877"/>
+        <Param name="G9_10" val="-3.902049552447428"/>
+        <Param name="B9_10" val="10.365394127060915"/>
+        <Param name="G9_11" val="0.0"/>
+        <Param name="B9_11" val="0.0"/>
+        <Param name="G9_12" val="0.0"/>
+        <Param name="B9_12" val="0.0"/>
+        <Param name="G9_13" val="0.0"/>
+        <Param name="B9_13" val="0.0"/>
+        <Param name="G9_14" val="-1.4240054870199312"/>
+        <Param name="B9_14" val="3.0290504569306034"/>
+        <Param name="G10_1" val="0.0"/>
+        <Param name="B10_1" val="0.0"/>
+        <Param name="G10_2" val="0.0"/>
+        <Param name="B10_2" val="0.0"/>
+        <Param name="G10_3" val="0.0"/>
+        <Param name="B10_3" val="0.0"/>
+        <Param name="G10_4" val="0.0"/>
+        <Param name="B10_4" val="0.0"/>
+        <Param name="G10_5" val="0.0"/>
+        <Param name="B10_5" val="0.0"/>
+        <Param name="G10_6" val="0.0"/>
+        <Param name="B10_6" val="0.0"/>
+        <Param name="G10_7" val="0.0"/>
+        <Param name="B10_7" val="0.0"/>
+        <Param name="G10_8" val="0.0"/>
+        <Param name="B10_8" val="0.0"/>
+        <Param name="G10_9" val="-3.902049552447428"/>
+        <Param name="B10_9" val="10.365394127060915"/>
+        <Param name="G10_10" val="5.782934306147828"/>
+        <Param name="B10_10" val="-14.768337876521436"/>
+        <Param name="G10_11" val="-1.8808847537003996"/>
+        <Param name="B10_11" val="4.402943749460521"/>
+        <Param name="G10_12" val="0.0"/>
+        <Param name="B10_12" val="0.0"/>
+        <Param name="G10_13" val="0.0"/>
+        <Param name="B10_13" val="0.0"/>
+        <Param name="G10_14" val="0.0"/>
+        <Param name="B10_14" val="0.0"/>
+        <Param name="G11_1" val="0.0"/>
+        <Param name="B11_1" val="0.0"/>
+        <Param name="G11_2" val="0.0"/>
+        <Param name="B11_2" val="0.0"/>
+        <Param name="G11_3" val="0.0"/>
+        <Param name="B11_3" val="0.0"/>
+        <Param name="G11_4" val="0.0"/>
+        <Param name="B11_4" val="0.0"/>
+        <Param name="G11_5" val="0.0"/>
+        <Param name="B11_5" val="0.0"/>
+        <Param name="G11_6" val="-1.9550285631772604"/>
+        <Param name="B11_6" val="4.0940743442404415"/>
+        <Param name="G11_7" val="0.0"/>
+        <Param name="B11_7" val="0.0"/>
+        <Param name="G11_8" val="0.0"/>
+        <Param name="B11_8" val="0.0"/>
+        <Param name="G11_9" val="0.0"/>
+        <Param name="B11_9" val="0.0"/>
+        <Param name="G11_10" val="-1.8808847537003996"/>
+        <Param name="B11_10" val="4.402943749460521"/>
+        <Param name="G11_11" val="3.83591331687766"/>
+        <Param name="B11_11" val="-8.497018093700962"/>
+        <Param name="G11_12" val="0.0"/>
+        <Param name="B11_12" val="0.0"/>
+        <Param name="G11_13" val="0.0"/>
+        <Param name="B11_13" val="0.0"/>
+        <Param name="G11_14" val="0.0"/>
+        <Param name="B11_14" val="0.0"/>
+        <Param name="G12_1" val="0.0"/>
+        <Param name="B12_1" val="0.0"/>
+        <Param name="G12_2" val="0.0"/>
+        <Param name="B12_2" val="0.0"/>
+        <Param name="G12_3" val="0.0"/>
+        <Param name="B12_3" val="0.0"/>
+        <Param name="G12_4" val="0.0"/>
+        <Param name="B12_4" val="0.0"/>
+        <Param name="G12_5" val="0.0"/>
+        <Param name="B12_5" val="0.0"/>
+        <Param name="G12_6" val="-1.525967440450974"/>
+        <Param name="B12_6" val="3.1759639650294003"/>
+        <Param name="G12_7" val="0.0"/>
+        <Param name="B12_7" val="0.0"/>
+        <Param name="G12_8" val="0.0"/>
+        <Param name="B12_8" val="0.0"/>
+        <Param name="G12_9" val="0.0"/>
+        <Param name="B12_9" val="0.0"/>
+        <Param name="G12_10" val="0.0"/>
+        <Param name="B12_10" val="0.0"/>
+        <Param name="G12_11" val="0.0"/>
+        <Param name="B12_11" val="0.0"/>
+        <Param name="G12_12" val="4.014992027272893"/>
+        <Param name="B12_12" val="-5.427938591201612"/>
+        <Param name="G12_13" val="-2.4890245868219187"/>
+        <Param name="B12_13" val="2.251974626172212"/>
+        <Param name="G12_14" val="0.0"/>
+        <Param name="B12_14" val="0.0"/>
+        <Param name="G13_1" val="0.0"/>
+        <Param name="B13_1" val="0.0"/>
+        <Param name="G13_2" val="0.0"/>
+        <Param name="B13_2" val="0.0"/>
+        <Param name="G13_3" val="0.0"/>
+        <Param name="B13_3" val="0.0"/>
+        <Param name="G13_4" val="0.0"/>
+        <Param name="B13_4" val="0.0"/>
+        <Param name="G13_5" val="0.0"/>
+        <Param name="B13_5" val="0.0"/>
+        <Param name="G13_6" val="-3.0989274038379877"/>
+        <Param name="B13_6" val="6.102755448193116"/>
+        <Param name="G13_7" val="0.0"/>
+        <Param name="B13_7" val="0.0"/>
+        <Param name="G13_8" val="0.0"/>
+        <Param name="B13_8" val="0.0"/>
+        <Param name="G13_9" val="0.0"/>
+        <Param name="B13_9" val="0.0"/>
+        <Param name="G13_10" val="0.0"/>
+        <Param name="B13_10" val="0.0"/>
+        <Param name="G13_11" val="0.0"/>
+        <Param name="B13_11" val="0.0"/>
+        <Param name="G13_12" val="-2.4890245868219187"/>
+        <Param name="B13_12" val="2.251974626172212"/>
+        <Param name="G13_13" val="6.724946148466233"/>
+        <Param name="B13_13" val="-10.66969354947068"/>
+        <Param name="G13_14" val="-1.1369941578063267"/>
+        <Param name="B13_14" val="2.314963475105352"/>
+        <Param name="G14_1" val="0.0"/>
+        <Param name="B14_1" val="0.0"/>
+        <Param name="G14_2" val="0.0"/>
+        <Param name="B14_2" val="0.0"/>
+        <Param name="G14_3" val="0.0"/>
+        <Param name="B14_3" val="0.0"/>
+        <Param name="G14_4" val="0.0"/>
+        <Param name="B14_4" val="0.0"/>
+        <Param name="G14_5" val="0.0"/>
+        <Param name="B14_5" val="0.0"/>
+        <Param name="G14_6" val="0.0"/>
+        <Param name="B14_6" val="0.0"/>
+        <Param name="G14_7" val="0.0"/>
+        <Param name="B14_7" val="0.0"/>
+        <Param name="G14_8" val="0.0"/>
+        <Param name="B14_8" val="0.0"/>
+        <Param name="G14_9" val="-1.4240054870199312"/>
+        <Param name="B14_9" val="3.0290504569306034"/>
+        <Param name="G14_10" val="0.0"/>
+        <Param name="B14_10" val="0.0"/>
+        <Param name="G14_11" val="0.0"/>
+        <Param name="B14_11" val="0.0"/>
+        <Param name="G14_12" val="0.0"/>
+        <Param name="B14_12" val="0.0"/>
+        <Param name="G14_13" val="-1.1369941578063267"/>
+        <Param name="B14_13" val="2.314963475105352"/>
+        <Param name="G14_14" val="2.560999644826258"/>
+        <Param name="B14_14" val="-5.344013932035955"/>
+        <Param name="pl1" val="0.0"/>
+        <Param name="ql1" val="0.0"/>
+        <Param name="pl2" val="0.217"/>
+        <Param name="ql2" val="0.127"/>
+        <Param name="pl3" val="0.9420000000000001"/>
+        <Param name="ql3" val="0.19"/>
+        <Param name="pl4" val="0.478"/>
+        <Param name="ql4" val="-0.039"/>
+        <Param name="pl5" val="0.076"/>
+        <Param name="ql5" val="0.016"/>
+        <Param name="pl6" val="0.11199999999999999"/>
+        <Param name="ql6" val="0.075"/>
+        <Param name="pl7" val="0.0"/>
+        <Param name="ql7" val="0.0"/>
+        <Param name="pl8" val="0.0"/>
+        <Param name="ql8" val="0.0"/>
+        <Param name="pl9" val="0.295"/>
+        <Param name="ql9" val="0.166"/>
+        <Param name="pl10" val="0.09"/>
+        <Param name="ql10" val="0.057999999999999996"/>
+        <Param name="pl11" val="0.035"/>
+        <Param name="ql11" val="0.018000000000000002"/>
+        <Param name="pl12" val="0.061"/>
+        <Param name="ql12" val="0.016"/>
+        <Param name="pl13" val="0.135"/>
+        <Param name="ql13" val="0.057999999999999996"/>
+        <Param name="pl14" val="0.149"/>
+        <Param name="ql14" val="0.05"/>
+        <Param name="wn" val="376.99111843077515"/>
+        <Param name="ws" val="1"/>
+        <Param name="pi" val="3.141592653589793"/>
+        <Param name="w1_0" val="ws"/>
+        <Param name="ra1" val="0.0"/>
+        <Param name="x1d1" val="0.8979"/>
+        <Param name="M1" val="10.296"/>
+        <Param name="D1" val="2.0"/>
+        <Param name="Pm1_0" val="1"/>
+        <Param name="E1" val="1"/>
+        <Param name="w2_0" val="ws"/>
+        <Param name="ra2" val="0.0031"/>
+        <Param name="x1d2" val="1.05"/>
+        <Param name="M2" val="13.08"/>
+        <Param name="D2" val="2.0"/>
+        <Param name="Pm2_0" val="1"/>
+        <Param name="E2" val="1"/>
+        <Param name="w3_0" val="ws"/>
+        <Param name="ra3" val="0.0031"/>
+        <Param name="x1d3" val="1.05"/>
+        <Param name="M3" val="13.08"/>
+        <Param name="D3" val="2.0"/>
+        <Param name="Pm3_0" val="1"/>
+        <Param name="E3" val="1"/>
+        <Param name="w6_0" val="ws"/>
+        <Param name="ra6" val="0.0041"/>
+        <Param name="x1d6" val="1.25"/>
+        <Param name="M6" val="10.12"/>
+        <Param name="D6" val="2.0"/>
+        <Param name="Pm6_0" val="1"/>
+        <Param name="E6" val="1"/>
+        <Param name="w8_0" val="ws"/>
+        <Param name="ra8" val="0.0041"/>
+        <Param name="x1d8" val="1.25"/>
+        <Param name="M8" val="10.12"/>
+        <Param name="D8" val="2.0"/>
+        <Param name="Pm8_0" val="1"/>
+        <Param name="E8" val="1"/>
+    </Params>
+    <ODEqs>
+        <Eq fx="delta1' = wn * (w1 - ws)"/>
+        <Eq fx="w1' = (1/M1) * (Pm1_0 -(E1 * iq1) - D1* (w1 - ws))"/>
+        <Eq fx="delta2' = wn * (w2 - ws)"/>
+        <Eq fx="w2' = (1/M2) * (Pm2_0 -(E2 * iq2) - D2* (w2 - ws))"/>
+        <Eq fx="delta3' = wn * (w3 - ws)"/>
+        <Eq fx="w3' = (1/M3) * (Pm3_0 -(E3 * iq3) - D3* (w3 - ws))"/>
+        <Eq fx="delta6' = wn * (w6 - ws)"/>
+        <Eq fx="w6' = (1/M6) * (Pm6_0 -(E6 * iq6) - D6* (w6 - ws))"/>
+        <Eq fx="delta8' = wn * (w8 - ws)"/>
+        <Eq fx="w8' = (1/M8) * (Pm8_0 -(E8 * iq8) - D8* (w8 - ws))"/>
+    </ODEqs>
+    <NLEqs>
+        <Eq fx="V4^2*G4_4+ V4*V2*(G4_2*cos(theta4- theta2) + B4_2*sin(theta4 - theta2))+ V4*V3*(G4_3*cos(theta4- theta3) + B4_3*sin(theta4 - theta3))+ V4*V5*(G4_5*cos(theta4- theta5) + B4_5*sin(theta4 - theta5))+ V4*V7*(G4_7*cos(theta4- theta7) + B4_7*sin(theta4 - theta7))+ V4*V9*(G4_9*cos(theta4- theta9) + B4_9*sin(theta4 - theta9)) + pl4"/>
+        <Eq fx="-V4^2*B4_4+ V4*V2*(G4_2*sin(theta4- theta2) - B4_2*cos(theta4 - theta2))+ V4*V3*(G4_3*sin(theta4- theta3) - B4_3*cos(theta4 - theta3))+ V4*V5*(G4_5*sin(theta4- theta5) - B4_5*cos(theta4 - theta5))+ V4*V7*(G4_7*sin(theta4- theta7) - B4_7*cos(theta4 - theta7))+ V4*V9*(G4_9*sin(theta4- theta9) - B4_9*cos(theta4 - theta9)) + ql4"/>
+        <Eq fx="V5^2*G5_5+ V5*V1*(G5_1*cos(theta5- theta1) + B5_1*sin(theta5 - theta1))+ V5*V2*(G5_2*cos(theta5- theta2) + B5_2*sin(theta5 - theta2))+ V5*V4*(G5_4*cos(theta5- theta4) + B5_4*sin(theta5 - theta4))+ V5*V6*(G5_6*cos(theta5- theta6) + B5_6*sin(theta5 - theta6)) + pl5"/>
+        <Eq fx="-V5^2*B5_5+ V5*V1*(G5_1*sin(theta5- theta1) - B5_1*cos(theta5 - theta1))+ V5*V2*(G5_2*sin(theta5- theta2) - B5_2*cos(theta5 - theta2))+ V5*V4*(G5_4*sin(theta5- theta4) - B5_4*cos(theta5 - theta4))+ V5*V6*(G5_6*sin(theta5- theta6) - B5_6*cos(theta5 - theta6)) + ql5"/>
+        <Eq fx="V7^2*G7_7+ V7*V4*(G7_4*cos(theta7- theta4) + B7_4*sin(theta7 - theta4))+ V7*V8*(G7_8*cos(theta7- theta8) + B7_8*sin(theta7 - theta8))+ V7*V9*(G7_9*cos(theta7- theta9) + B7_9*sin(theta7 - theta9)) + pl7"/>
+        <Eq fx="-V7^2*B7_7+ V7*V4*(G7_4*sin(theta7- theta4) - B7_4*cos(theta7 - theta4))+ V7*V8*(G7_8*sin(theta7- theta8) - B7_8*cos(theta7 - theta8))+ V7*V9*(G7_9*sin(theta7- theta9) - B7_9*cos(theta7 - theta9)) + ql7"/>
+        <Eq fx="V9^2*G9_9+ V9*V4*(G9_4*cos(theta9- theta4) + B9_4*sin(theta9 - theta4))+ V9*V7*(G9_7*cos(theta9- theta7) + B9_7*sin(theta9 - theta7))+ V9*V10*(G9_10*cos(theta9- theta10) + B9_10*sin(theta9 - theta10))+ V9*V14*(G9_14*cos(theta9- theta14) + B9_14*sin(theta9 - theta14)) + pl9"/>
+        <Eq fx="-V9^2*B9_9+ V9*V4*(G9_4*sin(theta9- theta4) - B9_4*cos(theta9 - theta4))+ V9*V7*(G9_7*sin(theta9- theta7) - B9_7*cos(theta9 - theta7))+ V9*V10*(G9_10*sin(theta9- theta10) - B9_10*cos(theta9 - theta10))+ V9*V14*(G9_14*sin(theta9- theta14) - B9_14*cos(theta9 - theta14)) + ql9"/>
+        <Eq fx="V10^2*G10_10+ V10*V9*(G10_9*cos(theta10- theta9) + B10_9*sin(theta10 - theta9))+ V10*V11*(G10_11*cos(theta10- theta11) + B10_11*sin(theta10 - theta11)) + pl10"/>
+        <Eq fx="-V10^2*B10_10+ V10*V9*(G10_9*sin(theta10- theta9) - B10_9*cos(theta10 - theta9))+ V10*V11*(G10_11*sin(theta10- theta11) - B10_11*cos(theta10 - theta11)) + ql10"/>
+        <Eq fx="V11^2*G11_11+ V11*V6*(G11_6*cos(theta11- theta6) + B11_6*sin(theta11 - theta6))+ V11*V10*(G11_10*cos(theta11- theta10) + B11_10*sin(theta11 - theta10)) + pl11"/>
+        <Eq fx="-V11^2*B11_11+ V11*V6*(G11_6*sin(theta11- theta6) - B11_6*cos(theta11 - theta6))+ V11*V10*(G11_10*sin(theta11- theta10) - B11_10*cos(theta11 - theta10)) + ql11"/>
+        <Eq fx="V12^2*G12_12+ V12*V6*(G12_6*cos(theta12- theta6) + B12_6*sin(theta12 - theta6))+ V12*V13*(G12_13*cos(theta12- theta13) + B12_13*sin(theta12 - theta13)) + pl12"/>
+        <Eq fx="-V12^2*B12_12+ V12*V6*(G12_6*sin(theta12- theta6) - B12_6*cos(theta12 - theta6))+ V12*V13*(G12_13*sin(theta12- theta13) - B12_13*cos(theta12 - theta13)) + ql12"/>
+        <Eq fx="V13^2*G13_13+ V13*V6*(G13_6*cos(theta13- theta6) + B13_6*sin(theta13 - theta6))+ V13*V12*(G13_12*cos(theta13- theta12) + B13_12*sin(theta13 - theta12))+ V13*V14*(G13_14*cos(theta13- theta14) + B13_14*sin(theta13 - theta14)) + pl13"/>
+        <Eq fx="-V13^2*B13_13+ V13*V6*(G13_6*sin(theta13- theta6) - B13_6*cos(theta13 - theta6))+ V13*V12*(G13_12*sin(theta13- theta12) - B13_12*cos(theta13 - theta12))+ V13*V14*(G13_14*sin(theta13- theta14) - B13_14*cos(theta13 - theta14)) + ql13"/>
+        <Eq fx="V14^2*G14_14+ V14*V9*(G14_9*cos(theta14- theta9) + B14_9*sin(theta14 - theta9))+ V14*V13*(G14_13*cos(theta14- theta13) + B14_13*sin(theta14 - theta13)) + pl14"/>
+        <Eq fx="-V14^2*B14_14+ V14*V9*(G14_9*sin(theta14- theta9) - B14_9*cos(theta14 - theta9))+ V14*V13*(G14_13*sin(theta14- theta13) - B14_13*cos(theta14 - theta13)) + ql14"/>
+        <Eq fx="V1*cos(theta1) - E1 * cos(delta1) - ra1*iq1*cos(delta1) - ra1*id1*sin(delta1) + x1d1*iq1*sin(delta1) - x1d1*id1*cos(delta1) = 0"/>
+        <Eq fx="V1*sin(theta1) - E1 * sin(delta1) - ra1*iq1*sin(delta1) + ra1*id1*cos(delta1) - x1d1*iq1*cos(delta1) - x1d1*id1*sin(delta1) = 0"/>
+        <Eq fx="V1^2*G1_1+ V1*V2*(G1_2*cos(theta1- theta2) + B1_2*sin(theta1 - theta2))+ V1*V5*(G1_5*cos(theta1- theta5) + B1_5*sin(theta1 - theta5)) = V1 * (iq1 * cos(theta1 - delta1) - id1 * sin(theta1 - delta1)) - pl1"/>
+        <Eq fx="-V1^2*B1_1+ V1*V2*(G1_2*sin(theta1- theta2) - B1_2*cos(theta1 - theta2))+ V1*V5*(G1_5*sin(theta1- theta5) - B1_5*cos(theta1 - theta5)) = V1 * (id1 * cos(theta1 - delta1) + iq1 * sin(theta1 - delta1))- ql1"/>
+        <Eq fx="V2*cos(theta2) - E2 * cos(delta2) - ra2*iq2*cos(delta2) - ra2*id2*sin(delta2) + x1d2*iq2*sin(delta2) - x1d2*id2*cos(delta2) = 0"/>
+        <Eq fx="V2*sin(theta2) - E2 * sin(delta2) - ra2*iq2*sin(delta2) + ra2*id2*cos(delta2) - x1d2*iq2*cos(delta2) - x1d2*id2*sin(delta2) = 0"/>
+        <Eq fx="V2^2*G2_2+ V2*V1*(G2_1*cos(theta2- theta1) + B2_1*sin(theta2 - theta1))+ V2*V3*(G2_3*cos(theta2- theta3) + B2_3*sin(theta2 - theta3))+ V2*V4*(G2_4*cos(theta2- theta4) + B2_4*sin(theta2 - theta4))+ V2*V5*(G2_5*cos(theta2- theta5) + B2_5*sin(theta2 - theta5)) = V2 * (iq2 * cos(theta2 - delta2) - id2 * sin(theta2 - delta2)) - pl2"/>
+        <Eq fx="-V2^2*B2_2+ V2*V1*(G2_1*sin(theta2- theta1) - B2_1*cos(theta2 - theta1))+ V2*V3*(G2_3*sin(theta2- theta3) - B2_3*cos(theta2 - theta3))+ V2*V4*(G2_4*sin(theta2- theta4) - B2_4*cos(theta2 - theta4))+ V2*V5*(G2_5*sin(theta2- theta5) - B2_5*cos(theta2 - theta5)) = V2 * (id2 * cos(theta2 - delta2) + iq2 * sin(theta2 - delta2))- ql2"/>
+        <Eq fx="V3*cos(theta3) - E3 * cos(delta3) - ra3*iq3*cos(delta3) - ra3*id3*sin(delta3) + x1d3*iq3*sin(delta3) - x1d3*id3*cos(delta3) = 0"/>
+        <Eq fx="V3*sin(theta3) - E3 * sin(delta3) - ra3*iq3*sin(delta3) + ra3*id3*cos(delta3) - x1d3*iq3*cos(delta3) - x1d3*id3*sin(delta3) = 0"/>
+        <Eq fx="V3^2*G3_3+ V3*V2*(G3_2*cos(theta3- theta2) + B3_2*sin(theta3 - theta2))+ V3*V4*(G3_4*cos(theta3- theta4) + B3_4*sin(theta3 - theta4)) = V3 * (iq3 * cos(theta3 - delta3) - id3 * sin(theta3 - delta3)) - pl3"/>
+        <Eq fx="-V3^2*B3_3+ V3*V2*(G3_2*sin(theta3- theta2) - B3_2*cos(theta3 - theta2))+ V3*V4*(G3_4*sin(theta3- theta4) - B3_4*cos(theta3 - theta4)) = V3 * (id3 * cos(theta3 - delta3) + iq3 * sin(theta3 - delta3))- ql3"/>
+        <Eq fx="V6*cos(theta6) - E6 * cos(delta6) - ra6*iq6*cos(delta6) - ra6*id6*sin(delta6) + x1d6*iq6*sin(delta6) - x1d6*id6*cos(delta6) = 0"/>
+        <Eq fx="V6*sin(theta6) - E6 * sin(delta6) - ra6*iq6*sin(delta6) + ra6*id6*cos(delta6) - x1d6*iq6*cos(delta6) - x1d6*id6*sin(delta6) = 0"/>
+        <Eq fx="V6^2*G6_6+ V6*V2*(G6_2*cos(theta6- theta2) + B6_2*sin(theta6 - theta2))+ V6*V3*(G6_3*cos(theta6- theta3) + B6_3*sin(theta6 - theta3))+ V6*V5*(G6_5*cos(theta6- theta5) + B6_5*sin(theta6 - theta5))+ V6*V7*(G6_7*cos(theta6- theta7) + B6_7*sin(theta6 - theta7))+ V6*V9*(G6_9*cos(theta6- theta9) + B6_9*sin(theta6 - theta9)) = V6 * (iq6 * cos(theta6 - delta6) - id6 * sin(theta6 - delta6)) - pl6"/>
+        <Eq fx="-V6^2*B6_6+ V6*V2*(G6_2*sin(theta6- theta2) - B6_2*cos(theta4 - theta2))+ V6*V3*(G6_3*sin(theta6- theta3) - B6_3*cos(theta4 - theta3))+ V6*V5*(G6_5*sin(theta6- theta5) - B6_5*cos(theta4 - theta5))+ V6*V7*(G6_7*sin(theta6- theta7) - B6_7*cos(theta4 - theta7))+ V6*V9*(G6_9*sin(theta6- theta9) - B6_9*cos(theta4 - theta9)) = V6 * (id6 * cos(theta6 - delta6) + iq6 * sin(theta6 - delta6))- ql6"/>
+        <Eq fx="V8*cos(theta8) - E8 * cos(delta8) - ra8*iq8*cos(delta8) - ra8*id8*sin(delta8) + x1d8*iq8*sin(delta8) - x1d8*id8*cos(delta8) = 0"/>
+        <Eq fx="V8*sin(theta8) - E8 * sin(delta8) - ra8*iq8*sin(delta8) + ra8*id8*cos(delta8) - x1d8*iq8*cos(delta8) - x1d8*id8*sin(delta8) = 0"/>
+        <Eq fx="V8^2*G8_8+ V8*V1*(G8_1*cos(theta8- theta1) + B8_1*sin(theta8 - theta1))+ V8*V2*(G8_2*cos(theta8- theta2) + B8_2*sin(theta8 - theta2))+ V8*V4*(G8_4*cos(theta8- theta4) + B8_4*sin(theta8 - theta4))+ V8*V6*(G8_6*cos(theta8- theta6) + B8_6*sin(theta8 - theta6)) = V8 * (iq8 * cos(theta8 - delta8) - id8 * sin(theta8 - delta8)) - pl8"/>
+        <Eq fx="-V8^2*B8_8+ V8*V1*(G8_1*sin(theta8- theta1) - B8_1*cos(theta5 - theta1))+ V8*V2*(G8_2*sin(theta8- theta2) - B8_2*cos(theta5 - theta2))+ V8*V4*(G8_4*sin(theta8- theta4) - B8_4*cos(theta5 - theta4))+ V8*V6*(G8_6*sin(theta8- theta6) - B8_6*cos(theta5 - theta6)) = V8 * (id8 * cos(theta8 - delta8) + iq8 * sin(theta8 - delta8))- ql8"/>
+    </NLEqs>
+</Model>

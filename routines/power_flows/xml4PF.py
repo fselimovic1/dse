@@ -45,7 +45,6 @@ def xml4PF(settings, ppc):
     params = ET.SubElement(model, "Params")#, attrib= {"dT": str(ms)})
 
     # bus injected powers
-    sbus = np.empty((nb, 2));
     for i in range(nb):
         # active power
         pi = 0;
